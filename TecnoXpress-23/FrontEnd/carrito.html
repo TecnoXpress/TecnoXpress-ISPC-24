@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:ital,wght@0,100;0,400;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/4661576001.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/productos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- logo de la empresa en la pestaña -->
+    <link rel="shortcut icon" href="./media/logo.png" />
+  </head>
+  <body>
+    <!-- Comienzo de header -->
+    <header>
+      <div id="containerNav"></div>
+    </header>
+    <!-- Fin de header -->
+
+    <main>
+      <div class="wrapper">
+        <div class="mobile">
+          <button class="open-menu" id="open-menu">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+        <aside>
+          <h1 class="categorias">Todos Nuestros productos</h1>
+          <button class="close-menu" id="close-menu">
+            <i class="bi bi-x"></i>
+          </button>
+          <nav>
+            <ul>
+              <li>
+                <a class="boton-menu boton-volver" href="./productos.html">
+                  <i class="bi bi-arrow-return-left"></i> Seguir Comprando
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="boton-menu boton-carrito active"
+                  href="./carrito.html"
+                >
+                  <i class="bi bi-cart-fill"></i> Carrito
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        <section class="contenedor-productos">
+          <h2 class="titulo-principal">Carrito</h2>
+          <div class="contenedor-carrito">
+            <p id="carrito-vacio" class="carrito-vacio">
+              Tu Carrito esta vacío. <i class="bi bi-emoji-frown"></i>
+            </p>
+            <div id="carrito-productos" class="carrito-productos disabled">
+              <div class="carrito-producto"></div>
+            </div>
+            <div id="carrito-acciones" class="carrito-acciones disabled">
+              <div class="carrito-acciones-izquierda">
+                <button
+                  id="carrito-acciones-vaciar"
+                  class="carrito-acciones-vaciar"
+                >
+                  Vaciar Carrito
+                </button>
+              </div>
+              <div class="carrito-acciones-derecha">
+                <div class="carrito-acciones-total">
+                  <p>Total:</p>
+                  <p id="total">$3000</p>
+                </div>
+                <a
+                  id="carrito-acciones-comprar"
+                  class="carrito-acciones-comprar"
+                  onClick="comprarCarrito()"
+                >
+                  Comprar Ahora
+                </a>
+              </div>
+            </div>
+            <p id="carrito-comprado" class="carrito-comprado disabled">
+              Muchas Gracias por tu compra.<i class="bi bi-emoji-smile"></i>
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="containerFooter"></div>
+    <!-- Footer -->
+    <!-- Javascript -->
+    <script src="./js/jsElements/navMain.js"></script>
+    <script src="./js/jsElements/footer.js"></script>
+    <script src="./js/js_carrito/productos.js"></script>
+    <script src="./js/js_carrito/carrito.js"></script>
+    <script src="./js/js_carrito/main.js"></script>
+    <script src="./js/js_carrito/menu.js"></script>
+  </body>
+</html>
