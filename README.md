@@ -11,6 +11,7 @@
 * Sergio Gabriel Valdiviezo
 * Carolina Valles
 * Romina Soledad Robledo
+* Romina Tejeda
 * Saidi Taoufik
 
 ### En rama MAIN:
