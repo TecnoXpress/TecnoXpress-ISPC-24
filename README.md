@@ -5,7 +5,6 @@
 ### Integrantes:
 * Andrea Paola Testa 
 * Franco Daniel Vega
-* Santiago Tulian 
 * Valentina Tachini
 * Erica Vanina Robledo 
 * Sergio Gabriel Valdiviezo
