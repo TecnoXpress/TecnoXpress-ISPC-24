@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* Estilos globales en styles.css */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Slab", serif;
+  }

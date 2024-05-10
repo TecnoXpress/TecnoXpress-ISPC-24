@@ -1,0 +1,14 @@
+{
+  "name": "tecnoxpress-ispc-24",
+  "version": "1.0.0",
+  "description": "* Andrea Paola Testa \r * Franco Daniel Vega\r * Valentina Tachini\r * Erica Vanina Robledo \r * Sergio Gabriel Valdiviezo\r * Carolina Valles\r * Romina Soledad Robledo\r * Romina Tejeda\r * Saidi Taoufik",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
