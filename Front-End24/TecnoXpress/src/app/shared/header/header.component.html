@@ -1,18 +1,55 @@
-<nav class="navbar">
-  <div class="nav-container">
-    <h5 class="logo">TecnoXpress</h5>
-    <div class="nav-links">
-      <ul>
-        <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
-        <li><a routerLink="/home" routerLinkActive="active"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li><a routerLink="/productos" routerLinkActive="active"><i class="fa fa-shopping-basket"></i> Productos</a></li>
-        <li><a routerLink="/somos" routerLinkActive="active"><i class="fa-regular fa-building"></i>Somos</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active"><i class="fa-regular fa-address-card"></i>Contacto</a></li>
-        <li><a routerLink="/registrar" routerLinkActive="active"><i class="fa fa-sign-in"></i> Registrar</a></li>
-        <li><a routerLink="/iniciar-sesion" routerLinkActive="active"><i class="fa fa-fw fa-user"></i>Iniciar Sesión</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div id="containerNav">
+  <section id="top-menu">
+    <nav class="navbar navbar-expand-sm ">
+        <div class="container-fluid justify-content-end">
+    
+    
+            <div class="btn-group ">
+                <a class="btn btn-ligth nav-link btn-sm btn-link" href="registration_form.html"><img class="top-img" src="./media/registro.png" alt="imagen-registro"><span class="top-txt">Registro</span></a>
+                <a class="btn btn-ligth nav-link btn-sm btn-link" href="form_ingreso.html"><img class="top-img" src="./media/login.png" alt="imagen-login"><span class="top-txt">Iniciar Sesión</span></a>
+            
+            </div>
+        </div>
+    </nav>
+    </section>
+    <section id="navegacion">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark menu">
+        <div class="container-fluid justify-content-between">
+            <a  class="navbar-brand" href="index.html">
+          <img id="logo" src="./media/logo.png" alt="Logo TecnoXpress"><span class="texto-logo">TecnoXpress</span>
+        </a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav alinear">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                    </li>
+                    <form class="d-flex buscar-nav">
+                        <input class="form-control me-2 btn-sm" type="text" placeholder="Buscar">
+                        <img class="btn btn-secondary btn-sm top-img btn-buscar-nav" src="./media/search.png" alt="Buscar...">
+                    </form>
+    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </section>
+
+
+
+</div>
+
 
 
