@@ -1,0 +1,38 @@
+.home-main {
+    padding: 20px;
+  }
+
+  .product-slider .carousel-img-wrapper {
+    max-height: 70vh;  /* Limitar la altura de las imágenes */
+    overflow: hidden;  /* Ocultar partes de la imagen que excedan el contenedor */
+  }
+
+  .product-slider img {
+    height: 500%;
+    object-fit: cover; /* Asegurar que la imagen cubra completamente el contenedor sin distorsionarse */
+  }
+
+  .carousel-caption {
+      background-image: linear-gradient(
+    to right,
+    rgba(14, 24, 3, 0.21),
+    rgb(241, 241, 241),
+    rgb(17, 1, 17),
+    rgb(21, 7, 97),
+    rgb(133, 47, 41),
+    rgb(198, 92, 27),
+    rgb(243, 236, 236)
+  ); /* Mejorar la legibilidad del texto sobre la imagen */
+    border-radius: 50px;
+  }
+
+  .store-location .map-container iframe {
+    width: 100%;
+    height: 400px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.8); /* Hacer el fondo más oscuro en dispositivos móviles para mejorar la legibilidad */
+    }
+  }

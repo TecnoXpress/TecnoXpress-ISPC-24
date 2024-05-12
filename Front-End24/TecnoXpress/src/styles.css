@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 /* Estilos globales en styles.css */
+/* Establecer estilos para el html y body que ocupen todo el alto de la ventana */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Establecer que el contenedor principal de la app ocupe como mínimo todo el alto de la ventana */
+  .app-container {
+    min-height: 100%; /* Usar min-height en lugar de height asegura que puede expandirse más allá de la altura de la ventana si es necesario */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Asegurar que el contenido del router ocupa el espacio disponible */
+  router-outlet + * {
+    flex: 1 0 auto; /* Esto toma cualquier espacio disponible */
+  }
+  
+  /* Footer al fondo */
+  app-footer {
+    flex-shrink: 0; /* Asegura que el footer no se encoge */
+  }

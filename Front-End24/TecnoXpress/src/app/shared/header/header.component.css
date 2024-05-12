@@ -1,15 +1,13 @@
 .navbar {
   display: flex;
   justify-content: center;
-  background-color: rgb(61, 28, 207);
+  background-color: rgb(22, 17, 8);
   background-image: linear-gradient(
     to right,
-    rgb(3, 24, 9),
-    rgb(10, 10, 10),
-    rgb(17, 1, 17),
-    rgb(21, 7, 97),
-    rgb(7, 7, 22),
-    rgb(13, 14, 13),
+    rgb(11, 23, 187),    
+    rgb(21, 41, 155),   
+    rgb(201, 132, 42),
+    rgb(201, 132, 42),
     rgb(12, 1, 1)
   );
   border-radius: 0 0;
@@ -86,13 +84,13 @@
 .nav-links a:hover {
   background-image: linear-gradient(
     to right,
-    rgb(3, 24, 9),
-    rgb(7, 65, 25),
-    rgb(67, 160, 38),
-    rgb(87, 148, 101),
-    rgb(2, 85, 53),
-    rgb(142, 150, 27),
-    rgb(12, 1, 1)
+    rgb(196, 125, 18),
+    rgb(128, 109, 68),
+    rgb(196, 125, 18),
+    rgb(46, 38, 2),
+    rgb(4, 14, 156)
+
+    
   );
   border-radius: 60px;
   box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
