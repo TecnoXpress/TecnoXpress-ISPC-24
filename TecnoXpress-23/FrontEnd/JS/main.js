@@ -1,9 +1,9 @@
 
 
-const contenedorDeProductos = document.querySelector("#contenedor-de-productos");
+const contenedorDeProductos = document.querySelector("#contenedor-de-productos"); ///// VER ESTO TAU A
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
-let botonesAgregar = document.querySelectorAll(".producto-agregar")
+let botonesAgregar = document.querySelectorAll(".producto-agregar") ///// VER ESTO TAU
 
 
 // cuando carga el archivo va a
@@ -17,7 +17,7 @@ function vaciarCarritoComprado(){
 }
  
 function cargarProductos(productosElegidos){
-    contenedorDeProductos.innerHTML="";
+    contenedorDeProductos.innerHTML=""; ///VER ESTO TAU A 
     productosElegidos.forEach(producto => {
         const div = document.createElement("div"); 
         div.classList.add("productos");

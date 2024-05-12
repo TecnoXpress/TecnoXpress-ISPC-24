@@ -1,26 +1,19 @@
-.mi-boton-tt {
-    position: relative;
-}
+:root {
+    --primary-color: #ff6f29;
+    --secondary-color: #494949;
+    --thirty-color: #000000;
+    --fourty-color: #ffffff;
+    --fifty-color: #e8e2dd;
+    --sixty-color: #28533e;
+    --seventy-color: #b4baf0;
+    --eighty-color: #e15fbd;
+  }
+  
 
-.mi-boton-tt::before {
-    content: attr(title);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 5px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
 
-.mi-boton-tt:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
+
+
+ 
 
 .wrapper {
     display: grid;
@@ -147,6 +140,30 @@ display:flex;
 .producto-botones button{
     margin:0px 5px
 }
+
+.mi-boton-tt {
+    position: relative;
+}
+
+.mi-boton-tt::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.mi-boton-tt:hover::before {
+    opacity: 1;
+    visibility: visible;
+} 
 .producto-agregar, .producto-ver-info {
     border: 0;
     background-color: var(--primary-color);
@@ -158,9 +175,7 @@ display:flex;
     transition: background-color .2s, color .2s;
     width:100%;
 }
-.bi-cart-plus, .bi-eye{
-    padding-left:5%;
-}
+
 .producto-agregar:hover, .producto-ver-info:hover {
     background-color: var(--fourty-color);
     color: var(--primary-color);
@@ -176,27 +191,31 @@ display:flex;
 
 
 
-/**
-.producto-botones {
-    display: flex;
-}
 
-.producto-botones button {
-    margin: 0px 5px;
-}**/
-/**
-.producto-agregar,
-.producto-ver-info {
-    border: 0;
-    background-color: #ff6f29;
-    color: #ffffff;
-    padding: .4rem;
-    border-radius: .50rem;
-    cursor: pointer;
-    transition: background-color .2s, color .2s;
-    width: 100%;
-} **/
-
+.producto-botones{
+    display:flex;
+    }
+    .producto-botones button{
+        margin:0px 5px
+    }
+    .producto-agregar, .producto-ver-info {
+        border: 0;
+        background-color: var(--primary-color);
+        color: var(--fourty-color);
+        padding: .4rem;
+        border-radius: .50rem;
+        cursor: pointer;
+        /* border: 2px solid var(--secondary-color); */
+        transition: background-color .2s, color .2s;
+        width:100%;
+    }
+    .bi-cart-plus, .bi-eye{
+        padding-left:5%;
+    }
+    .producto-agregar:hover, .producto-ver-info:hover {
+        background-color: var(--fourty-color);
+        color: var(--primary-color);
+    }
 
 /* PRODUCTO SINGLE */
 
