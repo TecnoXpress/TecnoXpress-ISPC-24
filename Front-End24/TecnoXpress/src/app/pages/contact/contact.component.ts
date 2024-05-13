@@ -1,6 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder,FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -18,9 +18,11 @@ export class ContactComponent {
 {
     this.contactForm = this.formBuilder.group(
       {
-      email: ['', [Validators.required, Validators.email]],
       nombre: ['', [Validators.required, Validators.minLength(4)]],
-      mensaje: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(500)]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(20)]],
+      asunto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      mensaje: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(300)]],
     }
   );
   
@@ -34,6 +36,17 @@ get Nombre() {
   return this.contactForm.get("nombre");
      
 }
+
+get Telefono() {
+  return this.contactForm.get("telefono");
+     
+}
+
+get Asunto() {
+  return this.contactForm.get("asunto");
+     
+}
+
 get Mensaje() {
   return this.contactForm.get("mensaje");
      
