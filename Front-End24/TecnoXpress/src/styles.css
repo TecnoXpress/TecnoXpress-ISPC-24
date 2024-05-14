@@ -1,0 +1,511 @@
+/* You can add global styles to this file, and also import other style files */
+/* Estilos globales en styles.css */
+:root {
+    --primary-color: #ff6f29;
+    --secondary-color: #494949;
+    --thirty-color: #000000;
+    --fourty-color: #ffffff;
+    --fifty-color: #e8e2dd;
+    --sixty-color: #28533e;
+    --seventy-color: #b4baf0;
+    --eighty-color: #e15fbd;
+  }
+  
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Slab", serif;
+}
+
+/* SECCION DE CARRUSEL DE IMAGENES */
+.container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  max-width: none;
+}
+.carousel-inner {
+  width: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 500px;
+}
+/* SECCION DE PRODUCTOS */
+
+.titleSectionProductos {
+  text-align: center;
+  padding: 30px;
+}
+
+@media (max-width: 750px) {
+  .titleSectionProductos {
+    margin-left: 0;
+  }
+}
+
+.productosNavCard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  justify-items: center;
+  padding: 10px;
+}
+
+.card {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card-body {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-start;
+  flex: 0;
+}
+
+/* SECCION BANNER */
+
+.banner {
+  text-align: center;
+  background-color: var(--fourty-color);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cardBanner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardTextContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--thirty-color);
+  border-radius: 5px;
+}
+
+.cardTitle {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 2em;
+  text-align: right;
+  font-weight: bold;
+}
+.textColor {
+  font-size: 1em;
+  color: var(--primary-color);
+}
+
+/* SECCION DE NOSOTROS */
+
+.nosotros_section .container {
+  padding: 5%;
+}
+
+.nosotros_section .container .card {
+  border: unset;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.nosotros_section .card-body {
+  align-items: unset;
+  margin: 5vh 3vh 0 3vh;
+}
+
+.nosotros_section .img-fluid {
+  width: unset !important;
+  max-width: 100%;
+  height: auto;
+}
+
+.nosotros_section .accordion {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.nosotros_section .accordion-button {
+  background-color: var(--primary-color);
+  color: var(--thirty-color);
+  border: none;
+  text-align: left;
+}
+
+.nosotros_section .accordion-collapse {
+  background-color: var(--fifty-color);
+  padding: 10px;
+}
+
+/* SECCION DE CONTACTO */
+
+.contact {
+  background: var(--fourty-color);
+  color: var(--thirty-color);
+}
+
+.conteiner_contact {
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+}
+
+.title_contact {
+  padding: 10px;
+}
+
+.contact-info {
+  color: var(--fourty-color);
+}
+
+.logo_contact {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.5em;
+  padding-bottom: 30px;
+}
+
+.contact-wrapper > * {
+  padding: 0.5em;
+}
+
+.contact-wrapper {
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+/* FORMULARIO DE CONTACTO */
+
+.contac-form {
+  background: var(--fifty-color);
+  color: var(--thirty-color);
+}
+
+.contac-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contac-form form .block {
+  grid-column: 1/3;
+}
+
+.contac-form form p {
+  margin: 0;
+  padding: 1em;
+}
+
+.contac-form form button,
+.contac-form form input,
+.contac-form form textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--thirty-color);
+  border-bottom: 1px solid var(--sixty-color);
+}
+
+/* Boton de enviar */
+
+.contac-form .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background: var(--sixty-color);
+  color: var(--fourty-color);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s ease all;
+  border-radius: 0.5em;
+  position: relative;
+}
+
+.contac-form .button .text_send {
+  transition: 0.4s ease-in-out all;
+  position: absolute;
+  left: 46%;
+}
+
+.contac-form .button .send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  left: -40px;
+  transition: 0.3s ease-in-out all;
+  opacity: 0;
+}
+
+.contac-form .button .icon_send {
+  color: var(--fourty-color);
+  width: 20px;
+  height: 20px;
+}
+
+.contac-form .button .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  transition: 0.3s ease-in-out all;
+  opacity: 0;
+}
+
+.contac-form .button:hover {
+  background-color: var(--eighty-color);
+}
+
+.contac-form .button:focus .check {
+  opacity: 1;
+}
+
+.contac-form .button:focus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--eighty-color);
+  position: relative;
+}
+
+.contac-form .button:hover .send {
+  left: calc(100% - 40px);
+  opacity: 1;
+}
+
+.contac-form .button:focus .send {
+  opacity: 0;
+}
+
+.contac-form .button:hover .text_send {
+  left: 30px;
+}
+
+.contac-form .button:focus .text_send {
+  opacity: 0;
+}
+
+/* INFORMACION DE CONTACTO */
+
+/* Contactos */
+
+.contact-info {
+  background: var(--sixty-color);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info h4,
+ul,
+.red-info h3 {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.contact-info h4 {
+  font-size: 1.7em;
+}
+
+.contact-info .maps {
+  max-width: 80%;
+}
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info ul li {
+  padding: 0.25em;
+}
+
+.contactIcon {
+  color: var(--primary-color);
+  font-size: 1.15em;
+  background: unset !important ;
+  width: 50px !important;
+}
+
+/* Redes Sociales */
+
+.red-info h3 {
+  font-size: 1.7em;
+}
+
+.redes {
+  display: flex;
+  column-gap: 25px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.redes .icon_red {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 30px;
+  color: var(--fourty-color);
+  border-radius: 50%;
+  outline: 2px solid var(--fourty-color);
+  transition-property: outline-color, background-color;
+  transition-duration: 0.25s;
+}
+
+.redes .icon_red:hover {
+  outline-offset: 4px;
+}
+
+.redes .icon_red:hover {
+  animation: shake 0.25s;
+}
+
+.redes .icon_instagram:hover {
+  background-image: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  outline-color: #a02d76;
+}
+
+.redes .icon_facebook:hover {
+  background-color: #3b5998;
+  outline-color: #3b5998;
+}
+
+.redes .icon_X:hover {
+  background-color: #1f2124;
+  outline-color: #1f2124;
+}
+
+@media (max-width: 750px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .conteiner_contact {
+    max-width: 100%;
+  }
+
+  .logo_contact {
+    font-size: 2.5em;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FIN SECCION DE CONTACTO */
+
+/*INICIO PIE DE PAGINA*/
+
+.redesLinks,
+me-4 {
+  color: var(--sixty-color);
+  text-decoration: none;
+}
+
+.redesLinks,
+a:hover {
+  color: var(--eighty-color);
+}
+
+.payMedia,
+a {
+  color: var(--sixty-color);
+}
+
+.payMedia,
+a:hover {
+  color: var(--eighty-color);
+}
+
+.border-bottom {
+  background-color: var(--fifty-color);
+}
+
+.copyRights {
+  background-color: var(--secondary-color);
+}
+
+/*FIN PIE DE PAGINA*/
+
+/*CHECKOUT*/
+
+#resumenPedido {
+  background-color: #f4f2f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.col-md-8 {
+  background-color: #fff;
+  box-shadow: -3px 8px 20px -px rgba(168, 165, 168, 1);
+}
+/*FIN CHECKOUT*/
+
+/*MEDIA QUERY - RESPONSIVE* *** DEJAR SIEMPRE AL ULTIMO*/
+
+@media screen and (max-width: 800px) {
+  #top-menu {
+    padding-right: 35px;
+  }
+  .top-txt {
+    display: none;
+  }
+
+  .nosotros_section .card-body {
+    margin: 1vh 3vh 0 3vh;
+  }
+
+  .PIEDEPAGINA .grupo-1 {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    padding: 35px 0px;
+  }
+}
+
+@media (max-width: 575px) {
+  .cardTitle {
+    font-size: 1em;
+  }
+}
