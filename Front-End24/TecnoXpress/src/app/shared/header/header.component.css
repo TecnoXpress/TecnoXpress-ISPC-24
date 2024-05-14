@@ -1,0 +1,68 @@
+#top-menu {
+  background-color: var(--primary-color);
+  padding-right:75px;
+} 
+
+#top-menu a{
+  color:white;
+  text-decoration: none;
+  padding-left: 10px;
+}
+.top-img{
+  width:24px;
+  height: auto;
+  padding-right: 5px;
+}
+
+/* SECCION DE LOGO Y BARRA DE NAVEGACION */
+
+.menu{
+  padding:15px 40px;
+}
+#logo{
+    height:60px;
+    width:60px;
+}
+li.nav-item  a {
+  font-size:18px;
+}
+li.registro{
+  display: inline;
+}
+.texto-logo{
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+}
+.buscar-nav{
+  
+  padding-left:50px;
+}  
+.btn-buscar-nav{
+  width:48px;
+  height: 45px;
+  padding:12px;
+  background-color: var(--primary-color);
+  border-color: transparent;
+}
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 3%;
+}
+
+/* FOOTER */
+.tit-pm h6{
+  text-align: center;
+}
+.tarjetas-pm{
+display:flex;
+width:90%;
+margin:10px;
+justify-content: space-around;
+}
+.tarjetas-pm p{
+ flex-wrap: nowrap;
+
+}
