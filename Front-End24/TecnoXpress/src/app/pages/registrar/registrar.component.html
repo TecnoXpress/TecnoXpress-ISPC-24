@@ -1,1 +1,64 @@
-<p>registrar works!</p>
+<
+    <!-- CSS -->  
+    <link rel="stylesheet" href="registrar.component.css">
+    
+<!-- formulario-registro.component.html -->
+
+<h2 class="tituloform">Formulario de Registro</h2>
+<main class="cuerpo">
+  <div class="container_registration">
+    <form class="formulario-registro" id="formulario-registro" (ngSubmit)="submitForm()">
+      <div class="columna-izquierda">
+        <p>
+          <label class="dato" [for]="'nombre'">Nombre</label>
+          <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" [(ngModel)]="nombre" required>
+          <span class="error" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">Por favor, ingrese un nombre válido.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'apellido'">Apellido</label>
+          <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" [(ngModel)]="apellido" required>
+          <span class="error" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">Por favor, ingrese un apellido válido.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'DNI'">DNI</label>
+          <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" [(ngModel)]="dni" required>
+          <span class="error" *ngIf="dni.invalid && (dni.dirty || dni.touched)">Por favor, ingrese un DNI válido de 8 dígitos.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'Celular'">Celular</label>
+          <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="celular" required>
+          <span class="error" *ngIf="celular.invalid && (celular.dirty || celular.touched)">Por favor, ingrese un número de celular válido de 10 dígitos.</span>
+        </p>
+      </div>
+      <div class="columna-derecha">
+        <p>
+          <label class="dato" [for]="'FechaNacimiento'">Fecha de Nacimiento</label>
+          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2008-12-31" id="FechaNacimiento" [(ngModel)]="fechaNacimiento" required>
+          <span class="error" *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)">Por favor, seleccione una Fecha de Nacimiento.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'Email'">Email</label>
+          <input class="celda" type="email" name="email" id="Email" [(ngModel)]="email" required>
+          <span class="error" *ngIf="email.invalid && (email.dirty || email.touched)">Por favor, ingrese un correo electrónico válido.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'Contraseña'">Contraseña</label>
+          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" [(ngModel)]="contraseña" required>
+          <span class="error" *ngIf="contraseña.invalid && (contraseña.dirty || contraseña.touched)">La contraseña debe tener al menos 4 caracteres.</span>
+        </p>
+        <p>
+          <label class="dato" [for]="'ConfirmarContraseña'">Confirmar contraseña</label>
+          <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" [(ngModel)]="confirmarContraseña" required>
+          <span class="error" *ngIf="confirmarContraseña.invalid && (confirmarContraseña.dirty || confirmarContraseña.touched)">Las contraseñas no coinciden.</span>
+        </p>
+      </div>
+      <p class="boton-container"> 
+        <button class="boton" type="submit">
+          <span>Registrar</span>
+        </button>
+      </p>
+    </form>
+  </div>
+</main>
+
+
