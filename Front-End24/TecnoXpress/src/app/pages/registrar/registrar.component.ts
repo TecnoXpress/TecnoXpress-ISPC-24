@@ -1,46 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registrar',
   standalone: true,
-  imports: [],
   templateUrl: './registrar.component.html',
-  styleUrl: './registrar.component.css'
+  styleUrls: ['./registrar.component.css'],
+  imports: [CommonModule, ReactiveFormsModule,NgIf],
 })
 
-export class RegistrarComponent implements OnInit {
-  nombre: string;
-  apellido: string;
-  dni: number;
-  celular: number;
-  fechaNacimiento: Date;
-  email: string;
-  contraseña: string;
-  confirmarContraseña: string;
-  registroForm: FormGroup;
+export class ContactComponent {
+  contactForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.registroForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[A-Za-z]+')]],
-      apellido: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[A-Za-z]+')]],
-      dni: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern('[0-9]{8}')]],
-      celular: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]{10}')]],
-      fechaNacimiento: ['', Validators.required],
+  constructor(private formBuilder: FormBuilder) {
+    this.contactForm = this.formBuilder.group({
+      nombre: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
-      contraseña: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-      confirmarContraseña: ['', Validators.required]
+      telefono: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(20)]],
+      asunto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      mensaje: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(300)]]
     });
   }
 
-  submitForm() {
-    if (this.registroForm.valid) {
-      console.log("Formulario enviado exitosamente");
-    } else {
-      console.log("El formulario no se envió porque hay errores de validación.");
-      alert("El formulario no se envió porque hay errores de validación.");
-    }
+  get Email() {
+    return this.contactForm.get("email");
+  }
+
+  get Nombre() {
+    return this.contactForm.get("nombre");
+  }
+
+  get Telefono() {
+    return this.contactForm.get("telefono");
+  }
+
+  get Asunto() {
+    return this.contactForm.get("asunto");
+  }
+
+  get Mensaje() {
+    return this.contactForm.get("mensaje");
+  }
+
+  onEnviar(event: Event) {
+    console.log(this.contactForm.value);
   }
 }

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [],
   templateUrl: './iniciar-sesion.component.html',
-  styleUrl: './iniciar-sesion.component.css'
+  styleUrls: ['./iniciar-sesion.component.css'],
+  imports: [CommonModule, ReactiveFormsModule,NgIf],
 })
 
-export class IniciarSesionComponent implements OnInit {
-  loginForm: FormGroup;
+export class IniciarSesionComponent  {
+  loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
@@ -28,4 +29,5 @@ export class IniciarSesionComponent implements OnInit {
       console.log("El formulario no se envió.");
       alert("El formulario no se envió porque hay errores de validación.");
     }
-  } }
+  }
+}

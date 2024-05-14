@@ -2,63 +2,80 @@
     <!-- CSS -->  
     <link rel="stylesheet" href="registrar.component.css">
     
-<!-- formulario-registro.component.html -->
-
-<h2 class="tituloform">Formulario de Registro</h2>
-<main class="cuerpo">
-  <div class="container_registration">
-    <form class="formulario-registro" id="formulario-registro" (ngSubmit)="submitForm()">
-      <div class="columna-izquierda">
-        <p>
-          <label class="dato" [for]="'nombre'">Nombre</label>
-          <input class="celda" type="text" name="nombre" id="nombre" minlength="4" maxlength="20" pattern="[A-Za-z]+" [(ngModel)]="nombre" required>
-          <span class="error" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">Por favor, ingrese un nombre válido.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'apellido'">Apellido</label>
-          <input class="celda" type="text" name="apellido" id="apellido" minlength="4" maxlength="20" pattern="[A-Za-z]+" [(ngModel)]="apellido" required>
-          <span class="error" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">Por favor, ingrese un apellido válido.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'DNI'">DNI</label>
-          <input class="celda" type="number" name="DNI" id="DNI" minlength="8" maxlength="8" pattern="[0-9]{8}" [(ngModel)]="dni" required>
-          <span class="error" *ngIf="dni.invalid && (dni.dirty || dni.touched)">Por favor, ingrese un DNI válido de 8 dígitos.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'Celular'">Celular</label>
-          <input class="celda" type="number" name="celular" id="Celular" minlength="10" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="celular" required>
-          <span class="error" *ngIf="celular.invalid && (celular.dirty || celular.touched)">Por favor, ingrese un número de celular válido de 10 dígitos.</span>
-        </p>
-      </div>
-      <div class="columna-derecha">
-        <p>
-          <label class="dato" [for]="'FechaNacimiento'">Fecha de Nacimiento</label>
-          <input class="celda" type="date" name="fecha_de_nacimiento" min="1900-01-01" max="2008-12-31" id="FechaNacimiento" [(ngModel)]="fechaNacimiento" required>
-          <span class="error" *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)">Por favor, seleccione una Fecha de Nacimiento.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'Email'">Email</label>
-          <input class="celda" type="email" name="email" id="Email" [(ngModel)]="email" required>
-          <span class="error" *ngIf="email.invalid && (email.dirty || email.touched)">Por favor, ingrese un correo electrónico válido.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'Contraseña'">Contraseña</label>
-          <input class="celda" type="password" name="contraseña" id="Contraseña" minlength="4" maxlength="15" [(ngModel)]="contraseña" required>
-          <span class="error" *ngIf="contraseña.invalid && (contraseña.dirty || contraseña.touched)">La contraseña debe tener al menos 4 caracteres.</span>
-        </p>
-        <p>
-          <label class="dato" [for]="'ConfirmarContraseña'">Confirmar contraseña</label>
-          <input class="celda" type="password" name="confirmar_contraseña" id="ConfirmarContraseña" [(ngModel)]="confirmarContraseña" required>
-          <span class="error" *ngIf="confirmarContraseña.invalid && (confirmarContraseña.dirty || confirmarContraseña.touched)">Las contraseñas no coinciden.</span>
-        </p>
-      </div>
-      <p class="boton-container"> 
-        <button class="boton" type="submit">
-          <span>Registrar</span>
-        </button>
-      </p>
-    </form>
-  </div>
-</main>
-
-
+    <section>
+        <div class="conteiner_contact">
+          <div class="title_contact">
+            <h1 class="logo_contact">Centro de ayuda</h1>
+            <p>
+              Encontrá la información que necesitás para comprar online, métodos
+              de pago, garantías, envíos, seguimiento de compras y más.
+            </p>
+          </div>
+          <div class="contact-wrapper">
+            <div class="contac-form">
+              <h3>Dejanos tus datos</h3>
+              <form [formGroup]="contactForm" (ngSubmit)="onEnviar($event)">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" formControlName="nombre" class="form-control d-flex" id="nombre" placeholder="Ingrese su nombre" required minlength="4">
+                  <span *ngIf="Nombre?.errors && (Nombre?.dirty || Nombre?.touched)" class="text-danger">
+                    <span *ngIf="Nombre?.errors?.required">El nombre es requerido!</span>
+                    <span *ngIf="Nombre?.errors?.minlength">El nombre debe tener más de 4 dígitos.</span>
+                  </span>
+                </div>
+                <div class="mb-5">
+                  <label for="email">Correo Electrónico</label>
+                  <input type="email" formControlName="email" class="form-control d-flex" id="email" placeholder="name@example.com" required>
+                  <span *ngIf="Email?.errors && (Email?.dirty || Email?.touched)" class="text-danger">
+                    <span *ngIf="Email?.errors?.required">El email es requerido!</span>
+                    <span *ngIf="Email?.errors?.email">El formato del email no es válido.</span>
+                  </span>
+                </div>
+                <div class="mb-5">
+                  <label for="telefono">Telefono</label>
+                  <input type="telefono" formControlName="telefono" class="form-control d-flex" id="telefono" placeholder="+543571621961" required minlength="11" maxlength="60">
+                  <span *ngIf="Telefono?.errors && (Telefono?.dirty || Telefono?.touched)" class="text-danger">
+                    <span *ngIf="Telefono?.errors?.required">El teléfono es requerido!</span>
+                    <span *ngIf="Telefono?.errors?.minlength">El teléfono debe tener al menos 11 números.</span>
+                    <span *ngIf="Telefono?.errors?.maxlength">El teléfono no puede sobrepasar los 20 números.</span>
+                  </span>
+                </div>
+                <div class="mb-5">
+                  <label for="asunto">Asunto</label>
+                  <input type="asunto" formControlName="asunto" class="form-control d-flex" id="asunto" placeholder="Asunto del Contacto" required minlength="5" maxlength="60">
+                  <span *ngIf="Asunto?.errors && (Asunto?.dirty || Asunto?.touched)" class="text-danger">
+                    <span *ngIf="Asunto?.errors?.required">El asunto del contacto es requerido!</span>
+                    <span *ngIf="Asunto?.errors?.minlength">El asunto debe tener al menos 5 caracteres.</span>
+                    <span *ngIf="Asunto?.errors?.maxlength">El asunto no debe pasar los 60 caracteres.</span>
+                  </span>
+                </div>
+                <div class="block">
+                  <label for="mensaje">Mensaje</label>
+                  <textarea formControlName="mensaje" class="form-control" id="mensaje" rows="10" cols="70" required minlength="4" maxlength="300"></textarea>
+                  <span *ngIf="Mensaje?.errors && (Mensaje?.dirty || Mensaje?.touched)" class="text-danger">
+                    <span *ngIf="Mensaje?.errors?.required">El mensaje es requerido.</span>
+                    <span *ngIf="Mensaje?.errors?.minlength">El mensaje debe contener entre 4 y 300 caracteres.</span>
+                    <span *ngIf="Mensaje?.errors?.maxlength">El mensaje es demasiado largo. El límite es de 300 caracteres.</span>
+                  </span>
+                </div>
+                <div class="block">
+                  <button type="submit" class="button">
+                    <span class="send">
+                      <i class="fa-solid fa-paper-plane icon_send"></i>
+                    </span>
+                    <span class="text_send"> Enviar </span>
+                    <span class="check">
+                      <i class="fa-solid fa-check icon"></i>
+                    </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="contact-info">
+              <h4>Mas Info</h4>
+              <!-- Aquí va el resto del contenido de la sección de información de contacto -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
