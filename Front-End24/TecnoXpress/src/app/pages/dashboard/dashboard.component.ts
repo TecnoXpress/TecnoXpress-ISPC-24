@@ -1,20 +1,12 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component,OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgIf,NgFor, CommonModule,],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit {
-  
-
-constructor() { }
-
-  ngOnInit(): void {
-  }
+export class DashboardComponent {
 
 }

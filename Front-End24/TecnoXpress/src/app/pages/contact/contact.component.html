@@ -1,1 +1,196 @@
-<h1>Soy el componente Contact ven a editarme </h1>
+<section>
+    <div class="conteiner_contact">
+      <div class="title_contact">
+        <h1 class="logo_contact">Centro de ayuda</h1>
+        <p>
+          Encontrá la información que necesitás para comprar online, métodos
+          de pago, garantías, envíos, seguimiento de compras y más.
+        </p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contac-form">
+          <h3>Dejanos tus datos</h3>
+          <form [formGroup]="contactForm" (ngSubmit)="onEnviar($event)">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" formControlName="nombre" class="form-control d-flex" id="nombre" placeholder="Ingrese su nombre" required minlength="4">
+
+              @if (Nombre?.errors && Nombre?.touched){
+                @if (Nombre?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El nombre es requerido!
+                  </p>
+                }
+                @else if(Nombre?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El nombre debe tener más 4 dígitos
+                  </p>
+                }
+              }
+
+            </div>
+            
+            <div class="mb-5">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" formControlName="email" class="form-control d-flex" id="email" placeholder="name@example.com" required>
+
+              @if (Email?.errors && Email?.touched){
+                @if (Email?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El email es requerido!
+                  </p>
+                }
+                @else if(Email?.hasError('email'))
+                {
+                  <p class="text-danger">
+                    El formato del email no es válido.
+                  </p>
+                }
+              }
+
+            </div>
+            <div class="mb-5">
+              <label for="telefono">Telefono</label>
+              <input type="telefono" formControlName="telefono" class="form-control d-flex" id="telefono" placeholder="+543571621961" required minlength="11" maxlength="60">
+
+              @if (Telefono?.errors && Telefono?.touched){
+                @if (Telefono?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El teléfono es requerido!
+                  </p>
+                }
+                @else if(Telefono?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El teléfono debe tener al menos 11 números.
+                  </p>
+                }
+                @else if(Telefono?.hasError('maxlength'))
+                {
+                  <p class="text-danger">
+                    El teléfono no puede sobrepasar los 20 numeros.
+                  </p>
+                }
+              }
+
+            </div>
+            <div class="mb-5">
+              <label for="asunto">Asunto</label>
+              <input type="asunto" formControlName="asunto" class="form-control d-flex" id="asunto" placeholder="Asunto del Contacto" required minlength="5" maxlength="60">
+
+              @if (Asunto?.errors && Asunto?.touched){
+                @if (Asunto?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El asunto del contacto es requerido!
+                  </p>
+                }
+                @else if(Asunto?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El Asunto debe tener al menos 5 caracteres.
+                  </p>
+                }
+                @else if(Asunto?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El Asunto no debe pasar los 60 caracteres.
+                  </p>
+                }
+              }
+
+            </div>
+          
+            <div class=" block">
+              <label for="mensaje">Mensaje</label>
+              <textarea formControlName="mensaje" class="form-control" id="mensaje" rows="10" cols="70" required minlength="4" maxlength="300"></textarea>
+
+              @if (Mensaje?.errors && Mensaje?.touched){
+                @if (Mensaje?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El mensaje es requerido.
+                  </p>
+                }
+                @else if(Mensaje?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El mensaje debe contener entre 4 y 300 caracteres.
+                  </p>
+                }
+                @else if(Mensaje?.hasError('maxlength'))
+                {
+                  <p class="text-danger">
+                    El mensaje es demasiado largo. El límite es de 300 caracteres.
+                  </p>
+                }
+              }
+            </div>
+            <div class="block">
+            <button type="submit" class="button">
+              <span class="send">
+                <i class="fa-solid fa-paper-plane icon_send"></i>
+              </span>
+              <span class="text_send"> Enviar </span>
+              <span class="check">
+                <i class="fa-solid fa-check icon"></i>
+              </span>
+            </button>
+          </div>
+          </form>
+                    
+        </div>
+        <div class="contact-info">
+          <h4>Mas Info</h4>
+          <span class="maps">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1702.6260736654788!2d-64.1919512616247!3d-31.40717830433768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432998fa4b4357b%3A0xcf43bc8d04170a61!2sISPC%20Instituto%20Superior%20Polit%C3%A9cnico%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1694100875863!5m2!1ses!2sar"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </span>
+          <ul>
+            <li>
+              <i
+                class="fa-solid fa-location-dot icon_location contactIcon"
+              ></i
+              >Humberto Primo 680
+            </li>
+            <li>
+              <i class="fa-regular fa-clock icon_clock contactIcon"></i>Lunes
+              a Viernes de 8hs a 18hs
+            </li>
+            <li>
+              <i class="fa-brands fa-whatsapp icon_whatsapp contactIcon"></i
+              >0800-777-3382
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope icon_envelope contactIcon"></i
+              >tecnoxpress&#64;gmail.com
+            </li>
+          </ul>
+          <div class="red-info">
+            <h3>Seguinos</h3>
+            <div class="redes">
+              <a href="https://www.instagram.com/" target="_blank" class="icon_red icon_instagram"
+                ><i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/" target="_blank" class="icon_red icon_facebook"
+                ><i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://twitter.com/" target="_blank" class="icon_red icon_X">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

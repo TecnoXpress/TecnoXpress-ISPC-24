@@ -6,9 +6,8 @@ import { SomosComponent } from './pages/somos/somos.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
-import {CarritoComponent} from "./pages/carrito/carrito.component";
+import { CarritoComponent } from './pages/carrito/carrito.component';
 import {RouterModule} from "@angular/router";
-
 
 export const routes: Routes = [
   {
@@ -40,6 +39,5 @@ export const routes: Routes = [
     component: ProductosComponent
   },
   { path: 'carrito', component: CarritoComponent },
-
 
 ];
