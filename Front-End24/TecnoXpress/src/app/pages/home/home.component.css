@@ -1,0 +1,99 @@
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Slab", serif;
+  }
+  
+  /* SECCION DE CARRUSEL DE IMAGENES */
+  .container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    max-width: none;
+  }
+  .carousel-inner {
+    width: 100%;
+  }
+  
+  .carousel-item img {
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 500px;
+  }
+  /* SECCION DE PRODUCTOS */
+  
+  .titleSectionProductos {
+    text-align: center;
+    padding: 30px;
+  }
+  
+  @media (max-width: 750px) {
+    .titleSectionProductos {
+      margin-left: 0;
+    }
+  }
+  
+  .productosNavCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 15px;
+    justify-items: center;
+    padding: 10px;
+  }
+  
+  .card {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-start;
+    flex: 0;
+  }
+  
+  /* SECCION BANNER */
+  
+  .banner {
+    text-align: center;
+    background-color: var(--fourty-color);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .cardBanner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .cardImg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .cardTextContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--thirty-color);
+    border-radius: 5px;
+  }
+  
+  .cardTitle {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 2em;
+    text-align: right;
+    font-weight: bold;
+  }
+  .textColor {
+    font-size: 1em;
+    color: var(--primary-color);
+  }
