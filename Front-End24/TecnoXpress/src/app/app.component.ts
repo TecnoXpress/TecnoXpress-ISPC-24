@@ -11,7 +11,7 @@ import { HomeComponent } from '../app/pages/home/home.component';
             HomeComponent,
             HeaderComponent,
             FooterComponent],
-            templateUrl: './app.component.html',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
