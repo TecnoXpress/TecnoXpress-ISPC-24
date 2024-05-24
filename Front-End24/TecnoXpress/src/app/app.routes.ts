@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { SomosComponent } from './pages/somos/somos.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { RegistroComponent } from './pages/registrar/registrar.component';
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
 
 
@@ -24,7 +24,7 @@ export const routes: Routes = [
   component: ContactComponent
   },
   {path:'registrar',
-  component: RegistrarComponent
+  component: RegistroComponent
   },
   {path:'iniciar-sesion',
   component: IniciarSesionComponent

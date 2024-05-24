@@ -1,11 +1,8 @@
 
-<link rel="stylesheet" href="iniciar-sesion.component.css">
-
-
 <section class="ingresofondo">
     <h2 class="titulo">¡Bienvenido a TecnoXpress!</h2>
     <div class="container_ingreso">
-        <form class="formularioIngreso" (ngSubmit)="submitForm()" [formGroup]="loginForm">
+        <form class="formularioIngreso" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
             <div class="input-container">
                 <input class="text" type="text" formControlName="usuario" placeholder="Usuario" minlength="4" maxlength="20" required>
                 <input class="text" type="password" formControlName="contraseña" placeholder="Contraseña" minlength="4" maxlength="15" required>
@@ -17,12 +14,10 @@
                 </button>
             </p>
             <p><a href="#" id="olvidar-contraseña">¿Olvidaste tu contraseña?</a></p>
-            <p><a href="iniciar-sesion.component.css" id="registro-enlace">¿No tienes cuenta? Regístrate</a></p>
+            <p><a routerLink="/registro" id="registro-enlace">¿No tienes cuenta? Regístrate</a></p>
         </form>
     </div>
 </section>
-</body>
-</html>
 
 
 
