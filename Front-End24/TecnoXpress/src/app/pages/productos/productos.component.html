@@ -1,70 +1,83 @@
+<main>
+  <div class="wrapper">
+    <div class="mobile">
+      <button
+        class="open-menu mi-boton-tt"
+        title="Abrir Menu Categorias"
+        id="open-menu"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+    <aside>
+      <h1 class="categorias">Todos Nuestros productos</h1>
+      <button
+        class="close-menu mi-boton-tt"
+        title="Cerrar Menu Categorias"
+        id="close-menu"
+      >
+        <i class="bi bi-x"></i>
+      </button>
+      <nav>
+        <ul class="menu">
+          <li>
+            <button id="todos" class="boton-menu boton-categoria active"(click)="filterProductoPorCategoria('todos')">
+              <i class="bi bi-hand-index-thumb"></i
+              ><i class="fa-brands fa-product-hunt"></i>Todos los productos
+            </button>
+          </li>
+          <li>
+            <button id="01" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('01')">
+              <i class="bi-hand-index-thumb"></i
+              ><i class="fa-solid fa-computer-mouse"></i>mouse
+            </button>
+          </li>
+          <li>
+            <button id="02" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('02')">
+              <i class="bi-hand-index-thumb"></i
+              ><i class="fa-solid fa-tv"></i>monitores
+            </button>
+          </li>
+          <li>
+            <button id="03" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('03')">
+              <i class="bi-hand-index-thumb"></i
+              ><i class="fa-regular fa-keyboard"></i>teclados
+            </button>
+          </li>
+          <!-- productos.component.html -->
+          <li>
+            <a routerLink="/carrito" class="boton-menu boton-carrito">
+              <i class="bi bi-cart-fill"></i>
+              <i class="fa-solid fa-cart-shopping"></i> Carrito<span
+                id="numerito"
+                class="numerito"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
-    <main>
-      <div class="wrapper">
-        <div class="mobile">
-          <button
-            class="open-menu mi-boton-tt"
-            title="Abrir Menu Categorias"
-            id="open-menu"
-          >
-            <i class="bi bi-list"></i>
-          </button>
-        </div>
-        <aside>
-          <h1 class="categorias">Todos Nuestros productos</h1>
-          <button
-            class="close-menu mi-boton-tt"
-            title="Cerrar Menu Categorias"
-            id="close-menu"
-          >
-            <i class="bi bi-x"></i>
-          </button>
-          <nav>
-            <ul class="menu">
-              <li>
-                <button id="todos" class="boton-menu boton-categoria active" (click)="filterProducts('todos')">
-                  <i class="bi bi-hand-index-thumb"></i><i class="fa-brands fa-product-hunt"></i>Todos los productos
-                </button>
-              </li>
-              <li>
-                <button id="01" class="boton-menu boton-categoria" (click)="filterProducts('01')">
-                  <i class="bi-hand-index-thumb"></i><i class="fa-solid fa-computer-mouse"></i>mouse
-                </button>
-              </li>
-              <li>
-                <button id="02" class="boton-menu boton-categoria" (click)="filterProducts('02')">
-                  <i class="bi-hand-index-thumb"></i><i class="fa-solid fa-tv"></i>monitores
-                </button>
-              </li>
-              <li>
-                <button id="03" class="boton-menu boton-categoria" (click)="filterProducts('03')">
-                  <i class="bi-hand-index-thumb"></i><i class="fa-regular fa-keyboard"></i>teclados
-                </button>
-              </li>
-              <!-- productos.component.html -->
-              <li>
-                <a routerLink="/carrito" class="boton-menu boton-carrito">
-                  <i class="bi bi-cart-fill"></i> <i class="fa-solid fa-cart-shopping"></i> Carrito<span id="numerito" class="numerito">0</span>
-                </a>
-              </li>
 
-            </ul>
-          </nav>
-        </aside>
-        <section class="contenedor-productos menu">
-      <h2 class="titulo-principal" id="titulo-principal"><i class="fa-brands fa-product-hunt"></i>Todos los productos</h2>
+    
+    <section class="contenedor-productos menu">
+      <h2 class="titulo-principal" id="titulo-principal">
+        <i class="fa-brands fa-product-hunt"></i>Todos los productos
+      </h2>
       <div id="contenedor-de-productos" class="contenedor-de-productos">
         <!-- Iterar sobre los productos -->
-        <div *ngFor="let producto of filteredProducts" class="producto">
-          <img [src]="producto.imagen" [alt]="producto.nombre">
+        <div *ngFor="let producto of listaProductos" class="producto" routerLink="/detalles/{{producto.id_productos}}">
+          
+          <img [src]="producto.imagen" [alt]="producto.nombre" />
           <div class="producto-detalles">
             <h3>{{ producto.nombre }}</h3>
-            <P>Categoria: {{producto.categoria.nombre}}</P>
+            <P>Categoria: {{ producto.categoria.nombre }}</P>
             <p>Precio: ${{ producto.precio }}</p>
-             <div class="producto-botones">
-                <button id="ver-mas-producto" class="producto-ver-mas mi-boton-tt"  title="Ver detalle .."><i class="fa-solid fa-eye"></i></button>
-                <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito" ><i class="fa-solid fa-cart-plus"></i></button>
-               <!--
+            <div class="producto-botones">
+              <button id="ver-mas-producto"  title="Ver detalle .."><i class="fa-solid fa-eye"></i></button>
+              <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito"> <i class="fa-solid fa-cart-plus"></i></button>
+              <!--
                 <button id="ver-mas-producto" class="producto-ver-mas mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></i></button>
                 <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito" id="${producto.id_productos}"><i class="bi bi-cart-plus"></i></button>
                 -->
@@ -74,12 +87,7 @@
           </div>
         </div>
       </div>
-      <div id="producto-single" class="producto-single disabled">
-
-      </div>
+      <div id="producto-single" class="producto-single disabled"></div>
     </section>
-      </div>
-    </main>
-
-
-
+  </div>
+</main>

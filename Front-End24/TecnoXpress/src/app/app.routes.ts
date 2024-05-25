@@ -8,6 +8,9 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import {RouterModule} from "@angular/router";
+import { ProductosDetallesComponent } from './pages/productos-detalles/productos-detalles.component';
+
+
 
 export const routes: Routes = [
   {
@@ -38,6 +41,8 @@ export const routes: Routes = [
     path: 'productos',
     component: ProductosComponent
   },
+  {path:'detalles/:id_productos', component:ProductosDetallesComponent},
+
   { path: 'carrito', component: CarritoComponent },
 
 ];
