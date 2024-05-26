@@ -5,7 +5,7 @@ export interface Categoria {
 }
 
 export interface Producto {
-  id_productos: string;
+  id: string;
   nombre: string;
   descripcion: string;
   imagen: string;

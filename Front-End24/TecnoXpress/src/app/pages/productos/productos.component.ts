@@ -1,13 +1,13 @@
 import { ProductosDetallesComponent } from './../productos-detalles/productos-detalles.component';
 import { Component, OnInit, inject } from '@angular/core';
-import { Producto,Categoria } from './producto.model';
+import { Producto } from './producto.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-productos',
@@ -44,7 +44,7 @@ export class ProductosComponent implements OnInit {
         this.listaProductos = res;
       },
       error: (error) => {
-        alert(`ERROR FROM API: ${error.message}`);
+        alert(`ERROR DE LA  API: ${error.message}`);
       },
     });
   }
@@ -59,7 +59,7 @@ export class ProductosComponent implements OnInit {
           this.listaProductos=res;
         },
         error: (error) => {
-          alert(`ERROR FROM API: ${error.message}`);
+          alert(`ERROR DE LA  API: ${error.message}`);
         },
       });
     }
