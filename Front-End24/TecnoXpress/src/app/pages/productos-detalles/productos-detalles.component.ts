@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { ProductosComponent } from '../productos/productos.component';
 
 
+
 @Component({
   selector: 'app-productos-detalles',
   standalone: true,
-  imports: [CommonModule,ProductosComponent,RouterLink],
+  imports: [CommonModule,ProductosComponent,RouterLink,],
   templateUrl: './productos-detalles.component.html',
   styleUrl: './productos-detalles.component.css'
 })
