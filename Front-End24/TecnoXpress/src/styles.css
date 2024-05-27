@@ -293,7 +293,7 @@
   position: relative;
 }
 
-.contac-form .button:hover .send {
+.contac-form .button:hover .send {ng update
   left: calc(100% - 40px);
   opacity: 1;
 }
@@ -581,9 +581,6 @@ a:hover {
   /*FIN FORMULARIO DE INGRESO*/
 
   /* Inicio formulario de registro */
-
-
-
 
 .tituloform {
   color: black;

@@ -23,8 +23,17 @@ import { Router } from '@angular/router';
         contraseña: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]]
       });
     }
+    get Usuario() {
+      return this.loginForm.get("usuario");
+         
+    }
+
+    get Password() {
+      return this.loginForm.get("contraseña");
+         
+    }
   
-    submitForm(): void {
+    onEnviar(event:Event) {
       if (this.loginForm.valid) {
         console.log("Enviando al servidor...");
         //this.authService.login(this.loginForm.value).subscribe(
@@ -37,4 +46,4 @@ import { Router } from '@angular/router';
           }
       } //else {
         //this.loginForm.markAllAsTouched();
-      }
+    }
