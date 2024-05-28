@@ -1,12 +1,11 @@
 <section>
   <div class="container_register">
     <div class="title_register">
-      <h1 class="logo_register">Registro</h1>
-      <p>Completa el formulario para crear tu cuenta.</p>
+      <h1>Registrate</h1>
     </div>
     <div class="register-wrapper">
       <div class="register-form">
-        <h3>Completa tus datos</h3>
+
         <form [formGroup]="registerForm" (ngSubmit)="onEnviar($event)">
 
           <div class="form-group">
@@ -23,6 +22,25 @@
                 {
                   <p class="text-danger">
                     El nombre debe tener más 4 dígitos
+                  </p>
+                }
+              }
+          </div>
+
+          <div class="form-group">
+            <label for="nombreUsuario">NombreUsuario</label>
+            <input type="text" formControlName="nombreUsuario" class="form-control" id="nombre d-flex" placeholder="Ingrese su nombre de usuario" required minlenggth="4">
+            @if (NombreUsuario?.errors && NombreUsuario?.touched){
+                @if (NombreUsuario?.hasError('required')) 
+                {
+                  <p class="text-danger">
+                    El nombre de usuario es requerido!
+                  </p>
+                }
+                @else if(NombreUsuario?.hasError('minlength'))
+                {
+                  <p class="text-danger">
+                    El nombre de usuario debe tener más 4 dígitos
                   </p>
                 }
               }
@@ -68,8 +86,8 @@
           </div>
 
           <div class="form-group">
-            <label for="telefono">Telefono</label>
-              <input type="telefono" formControlName="telefono" class="form-control d-flex" id="telefono" placeholder="+543571621961" required minlength="11" maxlength="60">
+            <label for="telefono">Teléfono</label>
+              <input type="number" formControlName="telefono" class="form-control d-flex" id="telefono" placeholder="+543571621961" required minlength="11" maxlength="60">
 
               @if (Telefono?.errors && Telefono?.touched){
                 @if (Telefono?.hasError('required')) 
@@ -96,7 +114,7 @@
 
           <div class="form-group">
             <label for="dni">DNI</label>
-            <input type="text" formControlName="dni" class="form-control" id="dni" placeholder="Ingrese su DNI" required  minlength="7" maxlength="8">
+            <input type="number" formControlName="dni" class="form-control" id="dni" placeholder="Ingrese su DNI" required  minlength="7" maxlength="8">
             @if (Dni?.errors && Dni?.touched){
                 @if (Dni?.hasError('required')) 
                 {
