@@ -1,16 +1,11 @@
-from rest_framework import viewsets
-from .models import Producto, Categoria, Carrito
-from .serializers import ProductoSerializer, CategoriaSerializer, CarritoSerializer
+from django.shortcuts import render
+from django.views.generic import TemplateView
 
-class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.all()
-    serializer_class = ProductoSerializer
+# Create your views here.
 
-class CategoriaViewSet(viewsets.ModelViewSet):
-    queryset = Categoria.objects.all()
-    serializer_class = CategoriaSerializer
+def hello_world(request):
+    return render(request, 'hello.html')
 
-class CarritoViewSet(viewsets.ModelViewSet):
-    queryset = Carrito.objects.all()
-    serializer_class = CarritoSerializer
 
+class HelloWorldView(TemplateView):
+    template_name = 'hello.html'
