@@ -4,9 +4,10 @@ from rest_framework.permissions import DjangoModelPermissions
 from .serializers import (
     ProductoSerializer, 
     CategoriaSerializer,
-    ProductoCategoriaSerializer
+    ProductoCategoriaSerializer,
+    CarritoSerializer
     )
-from Apps.Producto.models import Categoria, Producto
+from Apps.Producto.models import Categoria, Producto, Carrito
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 
 
@@ -29,3 +30,8 @@ class CategoriaViewSet(ModelViewSet):
     queryset = Categoria.objects.all()
     permission_classes = [DjangoModelPermissions]
     serializer_class = CategoriaSerializer
+
+class CarritoViewSet(ModelViewSet):
+    queryset = Carrito.objects.all()
+    serializer_class = CarritoSerializer
+    permission_classes = [DjangoModelPermissions]
