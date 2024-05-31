@@ -1,0 +1,87 @@
+.tituloform {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 36px;
+    padding: 20px 0;
+    color: black;
+}
+
+.container_register {
+    background: var(--fifty-color);
+    color: var(--thirty-color);
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5em;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10%;
+}
+
+.register-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.register-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    padding: 10px 0;
+    margin: 15px 0;
+    border: none;
+    background: none;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--sixty-color);
+    outline: none;
+}
+
+.form-group label {
+    font-size: 1.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--sixty-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--eighty-color);
+    color: var(--sixty-color);
+    transition: background-color 0.5s ease;
+}
+
+.error {
+    color: red;
+    display: none;
+}
