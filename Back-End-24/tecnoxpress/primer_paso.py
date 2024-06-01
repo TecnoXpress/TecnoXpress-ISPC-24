@@ -42,7 +42,7 @@ def run_migrations():
         create_database_if_not_exists()
         
         # Ejecutar el comando 'py manage.py makemigrations'
-        subprocess.run(['py', 'manage.py', 'makemigrations'], check=True)
+        subprocess.run(['py', 'manage.py', 'makemigrations', 'Facturacion', 'Usuario', 'Envio', 'Producto'], check=True)
         # Ejecutar el comando 'py manage.py migrate'
         subprocess.run(['py', 'manage.py', 'migrate'], check=True)
         print("Migraciones realizadas con éxito.")
@@ -68,15 +68,16 @@ def create_superuser():
         
         from Apps.Usuario.models import Usuario
 
-        # Crear un superusuario si no existe
-        if not Usuario.objects.filter(username='admin').exists():
+        # Verificar si el superusuario 'ProfesISPC' ya existe
+        if not Usuario.objects.filter(username='ProfesISPC').exists():
+            # Crear el superusuario 'ProfesISPC' si no existe
             Usuario.objects.create_superuser('ProfesISPC', 'profesISPC@admin.com', 'admin')
             print("Superusuario creado correctamente.")
         else:
-            print("El superusuario ya existe.")
+            print("El superusuario 'ProfesISPC' ya existe.")
     except Exception as e:
         print(f"Error al crear el superusuario: {e}")
-
+        
 if __name__ == "__main__":
     install_dependencies()
     run_migrations()
