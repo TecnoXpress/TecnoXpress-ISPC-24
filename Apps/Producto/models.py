@@ -42,7 +42,7 @@ class Carrito(models.Model):
         verbose_name_plural = 'Carrito'
 
     def __str__(self):
-        return f"Carrito de: {self.usuario.Usuarioname}"
+        return f"Carrito de: {self.usuario.username}"
 
 
     def calcular_precio(self):
