@@ -1,10 +1,9 @@
 import os
 import subprocess
-import mysql.connector
-import django
-from django.conf import settings
+
 
 def create_database_if_not_exists():
+    import mysql.connector
     try:
         # Conectar al servidor de MySQL (asegúrate de proporcionar los detalles correctos)
         connection = mysql.connector.connect(
@@ -37,6 +36,8 @@ def create_database_if_not_exists():
         print(f"Error al conectar y crear la base de datos: {err}")
 
 def run_migrations():
+    from django.conf import settings
+
     try:
         # Ejecutar la función para crear la base de datos si no existe
         create_database_if_not_exists()
@@ -61,6 +62,7 @@ def install_dependencies():
         print(f"Error al instalar las dependencias: {e}")
 
 def create_superuser():
+    import django
     try:
         # Configurar el entorno de Django
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tecnoxpress.settings')
