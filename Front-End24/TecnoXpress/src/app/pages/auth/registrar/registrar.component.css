@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #ff6f29;
+    --secondary-color: #494949;
+    --thirty-color: #000000;
+    --fourty-color: #ffffff;
+    --fifty-color: #e8e2dd;
+    --sixty-color: #28533e;
+    --seventy-color: #b4baf0;
+    --eighty-color: #e15fbd;
+  }
+  
+
+.tituloform {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 36px;
+    padding: 20px 0;
+}
+
+.container_register {
+    background: var(--fifty-color);
+    color: var(--thirty-color);
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 2.5em;
+    margin-bottom: 20px;
+    border-radius: 5%;
+}
+
+.register-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+.celda {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: none;
+    background: none;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--sixty-color);
+    outline: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    width: 100%;
+    padding: 10px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+}
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+.boton {
+    width: 100%;
+    background-color: var(--sixty-color);
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.boton:hover,
+.boton:focus {
+    background-color: var(--eighty-color);
+    color: var(--sixty-color);
+    transition: background-color 0.5s ease;
+}
+
+.text-danger {
+    color: red;
+    display: none;
+}
+
+.invalid .text-danger {
+    display: block;
+} 
+/* Validation Styles */
+.invalid {
+    border-color: red !important;
+    background-color: #fdd;
+    animation: shake 0.3s;
+}
+
+.valid {
+    border-color: green !important;
+    background-color: #dfd;
+}
+
+/* Error Message Styles */
+.text-danger {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.text-success {
+    color: green;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Animation for Invalid Input */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
