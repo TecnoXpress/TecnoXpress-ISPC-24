@@ -22,3 +22,4 @@ Carpeta Documentación 2024
 ### En WIKI:
 Se han dejado plasmado el link del **Repositorio de origen** y  las **Ceremonias de Scrum y Documentaciones**
 
+Ingreso a la rama de caro para trabajar juntos en los services de auth
