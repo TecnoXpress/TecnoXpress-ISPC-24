@@ -1,24 +1,65 @@
-<h2>En PROCESO </h2>
+<!--Aside nav-->
+<div class="layout">
+  <aside class="lado">
+    <h1 class="categorias">Todos Nuestros productos</h1>
+    <button class="close-menu mi-boton-tt" title="Cerrar Menu Categorias" id="close-menu">
+      <i class="bi bi-x"></i>
+    </button>
+    <nav>
+      <ul class="menu">
+        <li>
+          <button id="todos" class="boton-menu boton-categoria active" (click)="filterProductoPorCategoria('todos')" routerLink="/productos">
+            <i class="bi bi-hand-index-thumb"></i><i class="fa-brands fa-product-hunt"></i>Todos los productos
+          </button>
+        </li>
+        <li>
+          <button id="01" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('01')" routerLink="/productos">
+            <i class="bi-hand-index-thumb"></i><i class="fa-solid fa-computer-mouse"></i>mouse
+          </button>
+        </li>
+        <li>
+          <button id="02" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('02')" routerLink="/productos">
+            <i class="bi-hand-index-thumb"></i><i class="fa-solid fa-tv"></i>monitores
+          </button>
+        </li>
+        <li>
+          <button id="03" class="boton-menu boton-categoria" (click)="filterProductoPorCategoria('03')" routerLink="/productos">
+            <i class="bi-hand-index-thumb"></i><i class="fa-regular fa-keyboard"></i>teclados
+          </button>
+        </li>
+        <li>
+          <a routerLink="/carrito" class="boton-menu boton-carrito">
+            <i class="bi bi-cart-fill"></i><i class="fa-solid fa-cart-shopping"></i> Carrito<span id="numerito" class="numerito">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="content">
+    <div class="titulo-single">
+      <h2 class="titulo-principal" align="center">{{ producto.nombre }}</h2>
+    </div>
+    <div class="producto-single-wrapper">
+      <div class="producto-single-imagen">
+        <img class="producto-s-imagen img-fluid" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+      </div>
+      <div class="producto-single-detalles">
+        <div class="producto-single-caracteristicas">
+          <h3>Descripción del Producto:</h3>
+          <span class="txt">Categoria:</span>
+          <p class="producto-precio">{{ producto.categoria.nombre }}</p>
+          <span class="txt">Precio Unitario:</span>
+          <p class="producto-precio">$ {{ producto.precio }}</p>
+          <h4>Caracteristicas:</h4>
+          <p class="producto-single-descripcion">{{ producto.descripcion }};</p>
+          <h5 class="producto-single-descripcion">Stock: {{ producto.stock }} unidades</h5>
+        </div>
+        <div class="producto-single-agregar-carrito">
+          <button class="producto-agregar mi-boton-tt boton-single" title="Agregar al Carrito" id="{{ producto.id }}">Agregar al Carrito de Compras <i class="bi bi-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="titulo-single" >
-  <h2 class="titulo-principal" align="center">{{ producto.nombre }}</h2>
-</div>
-<div class="producto-single-wrapper">
-  <div class="producto-single-imagen">
-    <img class="producto-s-imagen img-fluid" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
-  </div>
-  <div class="producto-single-detalles">
-    <div class="producto-single-caracteristicas">
-      <h3>Descripción del Producto:</h3>
-      <span class="txt">Categoria:</span>
-      <p class="producto-precio">{{ producto.categoria.nombre }}</p>
-      <span class="txt">Precio Unitario:</span>
-      <p class="producto-precio">$ {{ producto.precio }}</p>
-      <h4>Caracteristicas:</h4>
-      <p class="producto-single-descripcion">{{ producto.descripcion }};</p>
-    </div>
-    <div class="producto-single-agregar-carrito">
-      <button class="producto-agregar mi-boton-tt boton-single" title="Agregar al Carrito" id="{{ producto.id_productos }}">Agregar al Carrito de Compras <i class="bi bi-cart-plus"></i></button>
-    </div>
-  </div>
-</div>
+

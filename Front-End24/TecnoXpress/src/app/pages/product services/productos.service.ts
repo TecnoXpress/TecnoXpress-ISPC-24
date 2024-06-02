@@ -23,8 +23,8 @@ getProductosPorCategorias(id_categoria_productos: string): Observable<Producto[]
 } 
 
 
-getProductoPorId(id_productos: string): Observable<Producto> {
-  const url = `${this.apiUrl}/${id_productos}`;
+getProductoPorId(id: string): Observable<Producto> {
+  const url = `${this.apiUrl}/${id}`;
   return this.http.get<Producto>(url);
 }
 

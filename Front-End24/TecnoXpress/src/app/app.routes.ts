@@ -41,7 +41,7 @@ export const routes: Routes = [
     path: 'productos',
     component: ProductosComponent
   },
-  {path:'detalles/:id_productos', component:ProductosDetallesComponent},
+  {path:'detalles/:id', component:ProductosDetallesComponent},
 
   { path: 'carrito', component: CarritoComponent },
 
