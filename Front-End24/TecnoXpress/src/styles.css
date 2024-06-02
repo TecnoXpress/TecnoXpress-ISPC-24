@@ -293,7 +293,7 @@
   position: relative;
 }
 
-.contac-form .button:hover .send {ng update
+.contac-form .button:hover .send {
   left: calc(100% - 40px);
   opacity: 1;
 }
