@@ -1,5 +1,5 @@
 import { ProductosDetallesComponent } from './../productos-detalles/productos-detalles.component';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { Producto,Categoria } from './producto.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
 import { Observable } from 'rxjs';
+import { CarritoService } from '../carrito-service/carrito.service'; // Ajusta la ruta si es necesario
+
 
 @Component({
   selector: 'app-productos',
@@ -18,10 +20,11 @@ import { Observable } from 'rxjs';
     NgFor,
     CommonModule,
     RouterModule,
-    CarritoComponent,
+    CarritoComponent, 
     ProductosDetallesComponent,
     HttpClientModule,
     RouterLink,
+    
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css',
@@ -31,7 +34,7 @@ export class ProductosComponent implements OnInit {
 
   listaProductos: Producto[] = [];
 
-  constructor() { }
+  constructor(private carritoService: CarritoService) { }
 
   ngOnInit(): void {
     this.getProductos();
