@@ -19,4 +19,5 @@ export const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
 ];

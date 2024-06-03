@@ -48,5 +48,224 @@
       "password": "123456789al",
       "confirmPassword": "123456789al"
     }
+  ],
+  "productos": [
+    {
+      "id": "01",
+      "nombre": "Mouse 01",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/mouse/01.webp",
+      "categoria": {
+        "nombre": "Mouses",
+        "id_categoria_productos": "01"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "02",
+      "nombre": "Mouse 02",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/mouse/02.webp",
+      "categoria": {
+        "nombre": "Mouses",
+        "id_categoria_productos": "01"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "03",
+      "nombre": "Mouse 03",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/mouse/03.webp",
+      "categoria": {
+        "nombre": "Mouses",
+        "id_categoria_productos": "01"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "04",
+      "nombre": "Mouse 04",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/mouse/04.webp",
+      "categoria": {
+        "nombre": "Mouses",
+        "id_categoria_productos": "01"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "05",
+      "nombre": "Mouse 05",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/mouse/05.webp",
+      "categoria": {
+        "nombre": "Mouses",
+        "id_categoria_productos": "01"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "06",
+      "nombre": "Monitor 01",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/01.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "07",
+      "nombre": "Monitor 02",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/02.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "08",
+      "nombre": "Monitor 03",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/03.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "09",
+      "nombre": "Monitor 04",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/04.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "10",
+      "nombre": "Monitor 05",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/05.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "11",
+      "nombre": "Monitor 06",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/06.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "12",
+      "nombre": "Monitor 07",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/07.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "13",
+      "nombre": "Monitor 08",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/monitores/08.webp",
+      "categoria": {
+        "nombre": "Monitores",
+        "id_categoria_productos": "02"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "14",
+      "nombre": "Teclado 01",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/teclados/01.webp",
+      "categoria": {
+        "nombre": "Teclados",
+        "id_categoria_productos": "03"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "15",
+      "nombre": "Teclado 02",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/teclados/02.webp",
+      "categoria": {
+        "nombre": "Teclados",
+        "id_categoria_productos": "03"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "16",
+      "nombre": "Teclado 03",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/teclados/03.webp",
+      "categoria": {
+        "nombre": "Teclados",
+        "id_categoria_productos": "03"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "17",
+      "nombre": "Teclado 04",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/teclados/04.webp",
+      "categoria": {
+        "nombre": "Teclados",
+        "id_categoria_productos": "03"
+      },
+      "precio": 1000,
+      "stock": 15
+    },
+    {
+      "id": "18",
+      "nombre": "Teclado 05",
+      "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+      "imagen": "assets/media/teclados/05.webp",
+      "categoria": {
+        "nombre": "Teclados",
+        "id_categoria_productos": "03"
+      },
+      "precio": 1000,
+      "stock": 15
+    }
   ]
 }
+
