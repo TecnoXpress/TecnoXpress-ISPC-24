@@ -11,43 +11,8 @@
       "fechaNacimiento": "1990-01-01",
       "password": "password123",
       "confirmPassword": "password123"
-    },
-    {
-      "id": "7b1b",
-      "nombre": "Arwa",
-      "nombreUsuario": "Arwa9",
-      "apellido": "Hamdouni",
-      "email": "arwa@gmail.com",
-      "telefono": 5465464641351,
-      "dni": 35413542,
-      "fechaNacimiento": "1999-04-05",
-      "password": "123456789aa",
-      "confirmPassword": "123456789aa"
-    },
-    {
-      "id": "e625",
-      "nombre": "Raquel",
-      "nombreUsuario": "raquel1",
-      "apellido": "Colume",
-      "email": "raquel@gmail.com",
-      "telefono": 25454344554,
-      "dni": 5746584763,
-      "fechaNacimiento": "1999-05-21",
-      "password": "123456789rr",
-      "confirmPassword": "123456789rr"
-    },
-    {
-      "id": "c1d0",
-      "nombre": "Aliana",
-      "nombreUsuario": "Aliana9",
-      "apellido": "Liana",
-      "email": "aliana@gmail.com",
-      "telefono": 54878858554,
-      "dni": 65535545,
-      "fechaNacimiento": "1987-04-12",
-      "password": "123456789al",
-      "confirmPassword": "123456789al"
     }
+   
   ],
   "productos": [
     {
