@@ -1,0 +1,153 @@
+/* Variables de color */
+:root {
+    --primary-color: #ff6f29;
+    --secondary-color: #494949;
+    --thirty-color: #000000;
+    --fourty-color: #ffffff;
+    --fifty-color: #e8e2dd;
+    --sixty-color: #28533e;
+    --seventy-color: #b4baf0;
+    --eighty-color: #e15fbd;
+}
+
+/* Contenedor principal */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* Aside (Menú de navegación) */
+.lado {
+    width: 20%;
+    padding: 2rem;
+    background-color: #f4f2f2;
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 2rem;
+    position: sticky;
+    top: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.boton-menu.active {
+    background-color: #fff;
+    color: var(--primary-color);
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: -3px 8px 20px -5px rgba(168, 165, 168, 1);
+}
+
+.boton-carrito {
+    margin-top: 2rem;
+}
+
+.numerito {
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+/* Contenido (Detalles del producto) */
+.content {
+    width: 80%;
+    padding: 2rem;
+}
+
+.titulo-single {
+    text-align: center;
+}
+
+.titulo-principal {
+    color: var(--primary-color);
+}
+
+.producto-single-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    margin: 20px;
+    background-color: #e7f7d8;
+    border-radius: 14px;
+    box-shadow: -3px 8px 20px -5px rgba(168, 165, 168, 1);
+}
+
+.producto-single-imagen, .producto-single-detalles {
+    width: 48%;
+    margin: 10px;
+}
+
+.producto-single-imagen img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.producto-single-agregar-carrito {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.boton-single {
+    padding: 10px;
+    width: 60%;
+    background-color: var(--primary-color);
+    color: var(--fourty-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-single:hover {
+    background-color: darkorange;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .lado {
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .producto-single-wrapper {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .producto-single-imagen, .producto-single-detalles {
+        width: 100%;
+    }
+}
