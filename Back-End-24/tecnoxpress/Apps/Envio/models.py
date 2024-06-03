@@ -1,36 +1,17 @@
 from django.db import models
 from Apps.Usuario.models import Usuario
+from Apps.Producto.models import Carrito
 
-class CodigoPostal(models.Model):
-    id_codigo_postal = models.AutoField(primary_key=True)
-    id_provincia = models.ForeignKey('Provincia', models.DO_NOTHING, db_column='id_provincia')
-    codigo_postal = models.IntegerField()
-    localidad = models.CharField(max_length=45)
+# Create your models here.
 
-    class Meta:
-        db_table = 'codigo_postal'
-        verbose_name = 'Código postal'
-        verbose_name_plural = 'Códigos postales'
-    
-    def __str__(self):
-        return str(self.codigo_postal)
-
-class Provincia(models.Model):
-    id_provincia = models.AutoField(primary_key=True)
-    provincia = models.CharField(max_length=50)
-
-    class Meta:
-        db_table = 'provincia'
-        verbose_name = 'Provincia'
-        verbose_name_plural = 'Provincias'
-    
-    def __str__(self):
-        return self.provincia
-        
 class Envio(models.Model):
-    id_envio = models.AutoField(primary_key=True)
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, db_column='id_usuarios')
-    codigo_postal = models.ForeignKey(CodigoPostal, on_delete=models.CASCADE, db_column='id_codigo_postal')
+    usuario = models.OneToOneField(Usuario,on_delete=models.CASCADE)
+    localidad = models.ForeignKey("Localidad", on_delete=models.CASCADE)
+    direccion = models.CharField(max_length=150)
+    descripcion = models.CharField(max_length=250,null=True, blank=True)
+    carrito = models.OneToOneField(Carrito, on_delete=models.CASCADE)
+    fecha_envio = models.DateTimeField(auto_now_add=True,null=True)
+    entregado = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'envio'
@@ -38,8 +19,32 @@ class Envio(models.Model):
         verbose_name_plural = 'Envíos'
 
     def __str__(self):
-        return f'Envío {self.id_envio} - Usuario: {self.usuario} - Código Postal: {self.codigo_postal}'
+        return f"{self.usuario.Usuarioname} | {self.localidad.nombre}"
+    
 
+class Localidad(models.Model):
+    nombre = models.CharField(max_length=250)
+    codigo_postal = models.CharField(max_length=50)
+    provincia = models.ForeignKey("Provincia", on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'localidad'
+        verbose_name = 'Localidad'
+        verbose_name_plural = 'Localidades'
+
+    def __str__(self):
+        return f"{self.nombre} | {self.provincia.nombre}"
+
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=250)
+
+    class Meta:
+        db_table = 'provincia'
+        verbose_name = 'Provincia'
+        verbose_name_plural = 'Provincias'
+
+    def __str__(self):
+        return f"{self.nombre}"
     
 
         

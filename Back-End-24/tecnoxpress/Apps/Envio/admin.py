@@ -1,13 +1,8 @@
 from django.contrib import admin
 from .models import *
+# Register your models here.
 
 
-class codigoPostalAdmin (admin.ModelAdmin):
-    list_display = ('Codigo postal', 'Localidad')
-    
-class provinciaAdmin (admin.ModelAdmin):
-    list_display = ('Provincia')
-    
-admin.register (CodigoPostal, codigoPostalAdmin)
-admin.register (Provincia, provinciaAdmin)
-admin.register (Envio)
+admin.site.register(Envio)
+admin.site.register(Localidad)
+admin.site.register(Provincia)

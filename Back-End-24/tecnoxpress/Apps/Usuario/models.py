@@ -1,22 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, Group, Permission
 
-class Usuario(models.Model):
-    id_usuarios = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=40)
-    contrasena = models.CharField(max_length=13)
-    nombre = models.CharField(max_length=60)
-    apellido = models.CharField(max_length=60, blank=True, null=True)
-    dni = models.IntegerField()
-    fecha_de_nacimiento = models.DateField(blank=True, null=True)
-    direccion = models.CharField(max_length=50)
-    fecha_registro = models.DateField(blank=True, null=True)
-    nro_telefonico = models.CharField(max_length=15, blank=True, null=True)
-    email = models.CharField(max_length=100, blank=True, null=True)
+class Usuario(AbstractUser):
+  dni = models.IntegerField(default=None,null=True)
+  fecha_de_nacimiento = models.DateField(blank=True, null=True)
+  direccion = models.CharField(max_length=50)
+  fecha_registro = models.DateField(blank=True, null=True)
+  nro_telefonico = models.CharField(max_length=15, blank=True, null=True)
+  email = models.EmailField(max_length= 150, unique=True)
 
-    class Meta:
-        db_table = 'usuarios'
-        verbose_name = 'Usuario'
-        verbose_name_plural = 'Usuarios'
 
-    def __str__(self):
-        return self.username
+
+  
+
