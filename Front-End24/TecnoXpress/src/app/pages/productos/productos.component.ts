@@ -1,12 +1,14 @@
 import { ProductosDetallesComponent } from './../productos-detalles/productos-detalles.component';
-import { Component, OnInit, inject } from '@angular/core';
-import { Producto } from './producto.model';
+import { Component, NgModule, OnInit, inject, ViewChild, ElementRef } from '@angular/core';
+import { Producto,Categoria } from '../productos/producto.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
+import { Observable } from 'rxjs';
+import { CarritoService } from '../carrito-service/carrito.service'; // Ajusta la ruta si es necesario
 
 
 @Component({
@@ -18,26 +20,30 @@ import { ProductosService } from '../product services/productos.service';
     NgFor,
     CommonModule,
     RouterModule,
-    CarritoComponent,
+    CarritoComponent, 
     ProductosDetallesComponent,
     HttpClientModule,
     RouterLink,
+    
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css',
 })
 export class ProductosComponent implements OnInit {
+  @ViewChild('contenedorDeProductos') contenedorDeProductos!: ElementRef;
+
+[x: string]: any;
   productosService = inject(ProductosService);
 
   listaProductos: Producto[] = [];
 
-  constructor() { }
+  constructor(private carritoService: CarritoService) { }
 
   ngOnInit(): void {
     this.getProductos();
 
   }
-
+  
   getProductos() {
     this.productosService.getProductos().subscribe({
       next: (res: Producto[]) => {
@@ -64,7 +70,10 @@ export class ProductosComponent implements OnInit {
       });
     }
   } 
-
+  llamarCargarProductosCarrito() {
+    // Asegúrate de que listaProductos esté definida y disponible aquí
+    this.carritoService.cargarProductosCarrito(this.listaProductos, this.contenedorDeProductos.nativeElement);
+  }
 
 
 

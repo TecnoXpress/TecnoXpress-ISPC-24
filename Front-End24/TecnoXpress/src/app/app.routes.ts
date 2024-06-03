@@ -10,6 +10,8 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { AuthGuard } from './pages/guards/auth.guard';
 import { ProductosDetallesComponent } from './pages/productos-detalles/productos-detalles.component';
 
+
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -19,7 +21,7 @@ export const routes: Routes = [
   { path: 'iniciar-sesion', component: IniciarSesionComponent },
   { path: 'productos', component: ProductosComponent },
   {path:'detalles/:id', component:ProductosDetallesComponent},
+
   { path: 'carrito', component: CarritoComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
 ];

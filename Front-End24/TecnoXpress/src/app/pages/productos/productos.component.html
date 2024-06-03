@@ -76,7 +76,11 @@
             <p>Precio: ${{ producto.precio }}</p>
             <div class="producto-botones">
               <button  routerLink="/detalles/{{producto.id}}" id="ver-mas-producto" class="producto-agregar mi-boton-tt"><i class="fa-solid fa-eye"></i>Detalles</button>
-              <button class="producto-agregar mi-boton-tt" id="{{ producto.id }}" title="Agregar al Carrito"> <i class="fa-solid fa-cart-plus"></i></button>
+              <button (click)="llamarCargarProductosCarrito()" class="producto-agregar mi-boton-tt" title="Agregar al Carrito"> 
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+
+
               <!--
                 <button id="ver-mas-producto" class="producto-ver-mas mi-boton-tt"  title="Ver más .." id="${producto.id_productos}"><i class="bi bi-eye"></i></button>
                 <button class="producto-agregar mi-boton-tt" title="Agregar al Carrito" id="${producto.id_productos}"><i class="bi bi-cart-plus"></i></button>
