@@ -1,7 +1,0 @@
-encabezado = "\n ************************************************************************\n                ------Bienvenidos a TecnoXpress ------ \n ------Mejora tu experiencia con lo mejor en Tech y accesorios------\n ************************************************************************"
-cierre = "\n\t\tGracias por visitar TecnoXpress.\n\t Pagina creada por Grupo 4 - ISPC"
-erroneo = "\nOpcion Incorrecta. Intente nuevamente.\n"
-decorador ="\n ******************************************************"
-correcto="\n\tEl campo se ha modificado correctamente.\n"
-opcion="Ingrese la opción elegida: "
-menu_usuario = "\n ************************************************************************\n                ------Menu de usuario ------ \n ************************************************************************"
