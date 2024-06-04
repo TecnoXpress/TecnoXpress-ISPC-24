@@ -1,0 +1,27 @@
+.contac-form {padding:10px;}
+
+
+.contac-form form input
+{
+  width: 95%;
+  padding: 10px;
+  border:1px solid rgb(37, 63, 37);
+  background: none;
+  outline: none;
+
+}
+.contac-form form label{
+    padding-left:20px;
+    font-size:15px;
+}
+
+.contac-form  h3{
+display:center;    
+font-size:30px;
+}
+.contac-form form textarea {
+    width: 98%;
+    border:1px solid rgb(37, 63, 37);
+    height: 80%;
+
+}

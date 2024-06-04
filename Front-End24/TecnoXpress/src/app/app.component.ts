@@ -10,6 +10,7 @@ import { TabComponent } from './tab/tab.component';
 import { TabContentComponent } from './tab-content/tab-content.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

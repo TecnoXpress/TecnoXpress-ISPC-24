@@ -8,10 +8,15 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
 import { PendientesComponent } from './pages/dashboard/pendientes-component/pendientes-component.component';
 import { RealizadasComponent } from './pages/dashboard/realizadas-component/realizadas-component.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { AuthGuard } from './pages/guards/auth.guard';
+import { ProductosDetallesComponent } from './pages/productos-detalles/productos-detalles.component';
+
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'somos', component: SomosComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'registrar', component: RegistrarComponent },
@@ -19,5 +24,9 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'productos', component: ProductosComponent },
   { path: 'realizadas', component: RealizadasComponent },
-  { path: 'pendientes', component: PendientesComponent }
+  { path: 'pendientes', component: PendientesComponent },
+  { path: 'productos', component: ProductosComponent },
+  {path:'detalles/:id', component:ProductosDetallesComponent},
+  { path: 'carrito', component: CarritoComponent },
+
 ];
