@@ -5,6 +5,8 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
+import { Observable } from 'rxjs';
+import { CarritoService } from '../carrito-service/carrito.service'; // Ajusta la ruta si es necesario
 
 @Component({
   selector: 'app-productos',
@@ -17,17 +19,19 @@ import { ProductosService } from '../product services/productos.service';
     CarritoComponent,
     HttpClientModule,
     RouterLink,
+    
   ],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
 })
 export class ProductosComponent implements OnInit {
+
   productosService = inject(ProductosService);
 
   listaProductos: Producto[] = [];
   carrito: Producto[] = [];
 
-  constructor() { }
+  constructor(private carritoService: CarritoService) { }
 
   ngOnInit(): void {
     this.getProductos();
@@ -40,7 +44,7 @@ export class ProductosComponent implements OnInit {
       },
     });
   }
-
+  
   getProductos() {
     this.productosService.getProductos().subscribe({
       next: (res: Producto[]) => {
