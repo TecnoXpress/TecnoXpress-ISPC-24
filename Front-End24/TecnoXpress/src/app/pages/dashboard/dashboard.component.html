@@ -1,3 +1,41 @@
 
+<div class="dashboard">
+    
+      <div class="card text-center">
+        <!--<div class="card-header">
+          <nav>
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+              <li class="nav-item">
+                  <a routerLink="dashboard/pendientes" routerLinkActive="active" class="nav-link">Pendientes</a>
+              </li>
+              <li class="nav-item">
+                  <a routerLink="dashboard/realizadas" routerLinkActive="active" class="nav-link">Realizadas</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        -->
 
-<h1>Dashboard, si, Yo soy Dashboard ven a editarme </h1>
+        <div class="dashboard">
+          <h1>Mi perfil</h1>
+          <div class="order-history">
+            <h2>Historial de Compras</h2>
+            <app-tab>
+              <app-tab-content title="Pendientes">
+               <app-pendientes-component></app-pendientes-component>
+              </app-tab-content>
+              <app-tab-content title="Realizadas">
+               <app-realizadas-component></app-realizadas-component>
+              </app-tab-content>
+            </app-tab>
+          </div>
+        </div>
+        
+        
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+</div>
+  
