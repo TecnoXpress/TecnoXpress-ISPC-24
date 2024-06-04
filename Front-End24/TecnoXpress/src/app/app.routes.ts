@@ -4,8 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { SomosComponent } from './pages/somos/somos.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { RegistrarComponent } from './pages/registrar/registrar.component';
-import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
+import { RegistrarComponent } from './pages/auth/registrar/registrar.component';
+import { IniciarSesionComponent } from './pages/auth/iniciar-sesion/iniciar-sesion.component';
 import { PendientesComponent } from './pages/dashboard/pendientes-component/pendientes-component.component';
 import { RealizadasComponent } from './pages/dashboard/realizadas-component/realizadas-component.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
@@ -28,5 +28,6 @@ export const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
   {path:'detalles/:id', component:ProductosDetallesComponent},
   { path: 'carrito', component: CarritoComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
 ];
