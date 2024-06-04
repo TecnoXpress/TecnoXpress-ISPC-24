@@ -1,1 +1,22 @@
-<h1 style="color:blue;">carrito works!</h1>
+<h2>Carrito de Compras</h2>
+<div *ngIf="carrito.length === 0">
+  <p>No hay productos en el carrito.</p>
+</div>
+<div *ngIf="carrito.length > 0">
+  <div *ngFor="let producto of carrito" class="carrito-producto">
+    <img [src]="producto.imagen" [alt]="producto.nombre" />
+    <div class="carrito-detalles">
+      <h3>{{ producto.nombre }}</h3>
+      <p>Precio: ${{ producto.precio }}</p>
+      <button (click)="removerDelCarrito(producto)" class="mi-boton-tt">
+        <i class="fa-solid fa-trash"></i> Remover
+      </button>
+    </div>
+  </div>
+  <div class="total-carrito">
+    <p>Total: ${{ total }}</p>
+  </div>
+  <button (click)="vaciarCarrito()" class="mi-boton-tt vaciar-carrito">
+    Vaciar Carrito
+  </button>
+</div>

@@ -1,0 +1,68 @@
+body {
+    background-color: #1a1a1a; /* Fondo negro */
+    color: #ff6600; /* Texto naranja */
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #ff6600; /* Naranja */
+  }
+  
+  h2 {
+    color: #ff6600; /* Naranja */
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 10px;
+  }
+  
+  p {
+    color: #ff6600; /* Naranja */
+  }
+  
+  .carrito-producto {
+    display: flex;
+    align-items: center;
+    background-color: #333333; /* Fondo gris oscuro */
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .carrito-producto img {
+    max-width: 100px;
+    margin-right: 20px;
+  }
+  
+  .carrito-detalles {
+    color: #ff6600; /* Texto naranja */
+  }
+  
+  .carrito-detalles h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .carrito-detalles p {
+    margin: 5px 0;
+  }
+  
+  .mi-boton-tt {
+    background-color: #ff6600; /* Fondo naranja */
+    color: #1a1a1a; /* Texto negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mi-boton-tt:hover {
+    background-color: #cc5200; /* Fondo naranja más oscuro */
+  }
+  
+  .vaciar-carrito {
+    margin-top: 20px;
+  }
+  
+  .fa-trash {
+    margin-right: 5px;
+  }
