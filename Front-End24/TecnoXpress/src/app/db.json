@@ -11,8 +11,19 @@
       "fechaNacimiento": "1990-01-01",
       "password": "password123",
       "confirmPassword": "password123"
+    },
+    {
+      "id": "3c22",
+      "nombre": "Taoufik",
+      "nombreUsuario": "Saidi",
+      "apellido": "saidi1",
+      "email": "saidi1@gmail.com",
+      "telefono": 54654645153156,
+      "dni": 5465463542,
+      "fechaNacimiento": "2000-01-30",
+      "password": "123456789tt",
+      "confirmPassword": "123456789tt"
     }
-   
   ],
   "productos": [
     {
@@ -233,4 +244,3 @@
     }
   ]
 }
-

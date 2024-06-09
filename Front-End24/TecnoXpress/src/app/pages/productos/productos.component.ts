@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
 import { Observable } from 'rxjs';
 import { CarritoService } from '../carrito-service/carrito.service'; // Ajusta la ruta si es necesario
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-productos',
   standalone: true,

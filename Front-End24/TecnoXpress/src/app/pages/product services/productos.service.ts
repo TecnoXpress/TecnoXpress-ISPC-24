@@ -27,7 +27,7 @@ export class ProductosService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Producto>(url);
   }
-
+////////////////////////////////////carrito///////////////
   agregarProductoAlCarrito(producto: Producto) {
     this.carrito.push(producto);
     this.carritoSubject.next(this.carrito);
@@ -59,7 +59,6 @@ export class ProductosService {
     this.totalSubject.next(total);
   }
 }
-
 
 
 

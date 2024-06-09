@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'realizadas', component: RealizadasComponent },
   { path: 'pendientes', component: PendientesComponent },
   { path: 'productos', component: ProductosComponent },
-  {path:'detalles/:id', component:ProductosDetallesComponent},
+  {path:  'detalles/:id', component:ProductosDetallesComponent},
   { path: 'carrito', component: CarritoComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
