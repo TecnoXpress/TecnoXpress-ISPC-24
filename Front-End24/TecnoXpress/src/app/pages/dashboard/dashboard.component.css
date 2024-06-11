@@ -1,12 +1,116 @@
+/* dashboard.component.css */
 
-.dashboard {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  .order-history, .shipment-status {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
+/* General styles */
+:host {
+  display: block;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Header styles */
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Section titles */
+h3 {
+  color: #34495e;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Profile section */
+p {
+  margin: 5px 0;
+  color: #7f8c8d;
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #ecf0f1;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li p {
+  margin: 0;
+  padding: 2px 0;
+}
+
+li ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+li ul li {
+  background: #bdc3c7;
+  padding: 5px;
+}
+
+/* Button styles */
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+/* Recommendations section */
+.recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.recommendations li {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(33.333% - 10px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.recommendations li:hover {
+  transform: translateY(-5px);
+}
+
+.recommendations img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.recommendations p {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+/* Images in purchases sections */
+li img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
   

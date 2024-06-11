@@ -1,48 +1,53 @@
- import { Component, OnInit } from '@angular/core';
-import { Producto } from '../productos/producto.model';
-import { ProductosService } from '../product services/productos.service';
-import { RouterLink } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterModule } from '@angular/router';
+import { Producto } from '../productos/producto.model';
+import { CarritoService } from './carrito-service/carrito.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [CommonModule, RouterModule, RouterLink],
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  carrito: Producto[] = [];
-  total: number = 0;
+  carrito: { producto: Producto, cantidad: number }[] = [];
+  totalProductos: number = 0;
+  totalPrecio: number = 0;
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private carritoService: CarritoService,@Inject(ToastrService) private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.productosService.obtenerCarrito().subscribe({
-      next: (productos) => {
-        this.carrito = productos;
-      },
-      error: (error) => {
-        console.error('Error al obtener el carrito:', error);
-      }
+    this.carritoService.obtenerCarrito().subscribe(productos => {
+      this.carrito = productos;
+      this.actualizarTotales();
     });
+  }
 
-    this.productosService.obtenerTotal().subscribe({
-      next: (total) => {
-        this.total = total;
-      },
-      error: (error) => {
-        console.error('Error al obtener el total:', error);
-      }
-    });
+  actualizarTotales(): void {
+    this.totalProductos = this.carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    this.totalPrecio = this.carrito.reduce((acc, item) => acc + item.producto.precio * item.cantidad, 0);
   }
 
   removerDelCarrito(producto: Producto) {
-    this.productosService.removerProductoDelCarrito(producto);
+    this.carritoService.removerProductoDelCarrito(producto);
+    this.actualizarTotales();
+    this.toastr.info(`${producto.nombre} ha sido removido del carrito.`);
   }
 
   vaciarCarrito() {
-    this.productosService.vaciarCarrito();
+    this.carritoService.vaciarCarrito();
+    this.actualizarTotales();
+    this.toastr.info('El carrito ha sido vaciado.');
+  }
+
+  comprarCarrito() {
+    this.toastr.success('Redirigiendo a la página de checkout.');
+    // Redirigir al usuario a la página de checkout con el estado del carrito
   }
 }
+
+
+

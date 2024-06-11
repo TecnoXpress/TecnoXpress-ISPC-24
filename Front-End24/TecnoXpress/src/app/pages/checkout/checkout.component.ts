@@ -1,96 +1,82 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CarritoService } from '../carrito-service/carrito.service'; // Asegúrate de importar tu servicio de carrito
-import { Router } from '@angular/router';
+import { Component, OnInit, Inject } from '@angular/core';
+import { CarritoService } from '../carrito/carrito-service/carrito.service';
 import { Producto } from '../productos/producto.model';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterModule } from '@angular/router';
+import { CheckoutService } from './checkout-service/checkout.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
   templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+  styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  carrito: { producto: Producto, cantidad: number }[] = [];
+  totalPrecio: number = 0;
   checkoutForm!: FormGroup;
-  pedidoEnviado: boolean = false;
-  productosCarrito: Producto[] = []; // Array para almacenar los productos del carrito
-  totalCarrito: number = 0; // Variable para almacenar el total del carrito
 
   constructor(
-    private formBuilder: FormBuilder,
     private carritoService: CarritoService,
-    private router: Router
+    private fb: FormBuilder,
+    private checkoutService: CheckoutService,
+    @Inject(ToastrService) private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
-    // Inicializar el formulario con validaciones
-    this.checkoutForm = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      apellido: ['', Validators.required],
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      direccionFactura: ['', Validators.required],
-      direccion2: [''], // Opcional
-      ciudad: ['', Validators.required],
-      pais: ['', Validators.required],
-      cp: ['', Validators.required],
-      mismaDireccion: [false], // Checkbox
-      guardarInfo: [false], // Checkbox
-      metododepago: ['', Validators.required],
-      tcname: ['', Validators.required],
-      nroTarjeta: ['', Validators.required],
-      vto: ['', Validators.required],
-      codSeg: ['', Validators.required]
+    this.carritoService.obtenerCarrito().subscribe(productos => {
+      this.carrito = productos;
+      this.calcularTotal();
     });
 
-    // Obtener los productos del carrito y calcular el total al iniciar el componente
-    this.productosCarrito = this.carritoService.obtenerProductosCarrito();
-    this.calcularTotal();
+    this.checkoutForm = this.fb.group({
+      nombre: ['', Validators.required],
+      direccion: ['', Validators.required],
+      tarjeta: ['', [Validators.required, Validators.pattern('\\d{16}')]],
+      exp: ['', [Validators.required, Validators.pattern('\\d{2}/\\d{2}')]],
+      cvv: ['', [Validators.required, Validators.pattern('\\d{3}')]]
+    });
   }
 
-  // Getters para acceder a los controles del formulario en la plantilla
-  get nombre() { return this.checkoutForm.get('nombre'); }
-  get apellido() { return this.checkoutForm.get('apellido'); }
-  get username() { return this.checkoutForm.get('username'); }
-  get email() { return this.checkoutForm.get('email'); }
-  get direccionFactura() { return this.checkoutForm.get('direccionFactura'); }
-  get direccion2() { return this.checkoutForm.get('direccion2'); }
-  get ciudad() { return this.checkoutForm.get('ciudad'); }
-  get pais() { return this.checkoutForm.get('pais'); }
-  get cp() { return this.checkoutForm.get('cp'); }
-  get mismaDireccion() { return this.checkoutForm.get('mismaDireccion'); }
-  get guardarInfo() { return this.checkoutForm.get('guardarInfo'); }
-  get metododepago() { return this.checkoutForm.get('metododepago'); }
-  get tcname() { return this.checkoutForm.get('tcname'); }
-  get nroTarjeta() { return this.checkoutForm.get('nroTarjeta'); }
-  get vto() { return this.checkoutForm.get('vto'); }
-  get codSeg() { return this.checkoutForm.get('codSeg'); }
+  calcularTotal(): void {
+    this.totalPrecio = this.carrito.reduce((acc, item) => acc + item.producto.precio * item.cantidad, 0);
+  }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.checkoutForm.valid) {
-      // Lógica para enviar el pedido
-      const datosPedido = {
+      const datosPago = {
         ...this.checkoutForm.value,
-        productos: this.productosCarrito,
-        total: this.totalCarrito
+        carrito: this.carrito,
+        total: this.totalPrecio,
+        fechaPago: new Date().toISOString() // Agregar la fecha de pago
       };
-
-      // Aquí enviarías los datos del pedido a tu backend para procesarlo
-      // ... (implementa la lógica de envío según tus necesidades)
-
-      this.pedidoEnviado = true; // Mostrar mensaje de éxito
-      this.carritoService.vaciarCarrito(); // Vaciar el carrito después de la compra
-      this.router.navigate(['/']); // Redirigir a la página principal (opcional)
+      
+      this.checkoutService.procesarPago(datosPago).subscribe({
+        next: () => {
+          this.toastr.success('Compra realizada con éxito');
+          this.carritoService.vaciarCarrito();
+        },
+        error: (error) => {
+          console.error('Error al procesar el pago:', error);
+          this.toastr.error('Error al procesar el pago. Intente nuevamente.');
+        }
+      });
     } else {
-      this.checkoutForm.markAllAsTouched(); // Marcar todos los campos como tocados para mostrar los mensajes de error
+      this.toastr.warning('Por favor, complete el formulario correctamente.');
     }
   }
-
-  calcularTotal() {
-    this.totalCarrito = this.carritoService.calcularTotal();
-  }
 }
+
+
+
+
+
+
+

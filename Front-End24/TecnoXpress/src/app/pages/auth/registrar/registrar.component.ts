@@ -1,9 +1,11 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component,OnInit  } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth-service/auth.service';
 import { User } from '../registrar/user.model';
+import { ToastrService } from 'ngx-toastr';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-registrar',
@@ -20,7 +22,8 @@ export class RegistrarComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    @Inject(ToastrService) private toastr: ToastrService
   ) {
     this.registerForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4)]],
@@ -30,10 +33,11 @@ export class RegistrarComponent implements OnInit {
       telefono: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(20)]],
       dni: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(8)]],
       fechaNacimiento: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(11)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required]
     }, { validator: this.passwordMatchValidator });
   }
+
   ngOnInit(): void {}
 
   // Getters for form controls
@@ -56,35 +60,17 @@ export class RegistrarComponent implements OnInit {
       const confirmPassword = confirmPasswordControl.value;
       return password === confirmPassword ? null : { passwordMismatch: true };
     } else {
-      return null;}}
-////////////////////  funcion view///////////////////////////////////
-      togglePasswordVisibility(): void {
-        this.showPassword = !this.showPassword;
-      }
-    
-      toggleConfirmPasswordVisibility(): void {
-        this.showConfirmPassword = !this.showConfirmPassword;
-      }
+      return null;
+    }
+  }
 
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
 
-       // Para el registro del usuario  forma 1 
-   /*onEnviar(event: Event): void {
-    event.preventDefault();
-    if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe(
-        response => {
-          console.log('Registration successful:', response);
-          alert('El registro se ha creado satisfactoriamente. ¡A continuación!, inicie sesión'); // Muestra un mensaje de éxito
-          this.router.navigate(['/iniciar-sesion'])
-        },
-        error => {
-          console.error('Registration error:', error);
-          alert('Registration error: ' + error.message); // Muestra un mensaje de error
-        }
-      ); 
-    }  } */
-
-    // Para el registro del usuario  forma 2
+  toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
 
   registrar(): void {
     if (this.registerForm.valid) {
@@ -92,41 +78,43 @@ export class RegistrarComponent implements OnInit {
       this.authService.register(user).subscribe(
         response => {
           console.log('Registration successful:', response);
-          alert('El registro se ha creado satisfactoriamente. ¡A continuación!, inicie sesión');
+          this.toastr.success('El registro se ha creado satisfactoriamente. ¡A continuación!, inicie sesión');
           this.router.navigate(['/iniciar-sesion']);
         },
         error => {
           console.error('Registration error:', error);
-          alert('Error en el registro: ' + error.message);
+          this.toastr.error('Error en el registro: ' + error.message);
         }
       );
     } else {
-      alert('Por favor, complete todos los campos correctamente.');
+      this.toastr.warning('Por favor, complete todos los campos correctamente.');
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

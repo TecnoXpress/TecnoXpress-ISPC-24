@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { User } from '../auth/registrar/user.model';
+import { User } from '../registrar/user.model';
+import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
+import { Pedido } from '../../checkout/Model/pedido.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(ToastrService) private toastr: ToastrService) {
     this.currentUserSubject = new BehaviorSubject<User | null>(this.getCurrentUserFromStorage());
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -31,7 +33,12 @@ export class AuthService {
   }
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}`, user);
+    return this.http.post<User>(`${this.apiUrl}`, user).pipe(
+      map(response => {
+        this.toastr.success('Registro exitoso');
+        return response;
+      })
+    );
   }
 
   login(nombreUsuario: string, password: string): Observable<User> {
@@ -41,8 +48,10 @@ export class AuthService {
           const user = users[0];
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
+          this.toastr.success('Inicio de sesión exitoso');
           return user;
         } else {
+          this.toastr.error('Usuario o contraseña incorrectos');
           throw new Error('Usuario o contraseña incorrectos');
         }
       })
@@ -52,8 +61,17 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.toastr.info('Cierre de sesión exitoso');
   }
+
+  getPedidos(userId: string): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`http://localhost:3000/pedidos?userId=${userId}`);
+  }
+  
 }
+
+
+
 
 
 

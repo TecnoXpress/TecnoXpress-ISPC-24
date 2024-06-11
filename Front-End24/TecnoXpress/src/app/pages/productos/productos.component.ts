@@ -2,12 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Producto } from './producto.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
-import { CarritoComponent } from '../carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosService } from '../product services/productos.service';
-import { Observable } from 'rxjs';
-import { CarritoService } from '../carrito-service/carrito.service'; // Ajusta la ruta si es necesario
-import { Router } from '@angular/router';
+import { CarritoService } from '../carrito/carrito-service/carrito.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-productos',
   standalone: true,
@@ -16,42 +15,39 @@ import { Router } from '@angular/router';
     NgIf,
     NgFor,
     RouterModule,
-    CarritoComponent,
     HttpClientModule,
     RouterLink,
-    
   ],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
 })
 export class ProductosComponent implements OnInit {
-
   productosService = inject(ProductosService);
-
   listaProductos: Producto[] = [];
-  carrito: Producto[] = [];
+  totalProductos: number = 0;
+  toastr = inject(ToastrService);
 
-  constructor(private carritoService: CarritoService) { }
+  constructor(private carritoService: CarritoService) {}
 
   ngOnInit(): void {
     this.getProductos();
-    this.productosService.obtenerCarrito().subscribe({
-      next: (productos) => {
-        this.carrito = productos;
+    this.carritoService.obtenerTotalProductos().subscribe({
+      next: (total) => {
+        this.totalProductos = total;
       },
       error: (error) => {
-        alert(`ERROR DE LA API: ${error.message}`);
+        this.toastr.error(`ERROR DE LA API: ${error.message}`);
       },
     });
   }
-  
+
   getProductos() {
     this.productosService.getProductos().subscribe({
       next: (res: Producto[]) => {
         this.listaProductos = res;
       },
       error: (error) => {
-        alert(`ERROR DE LA API: ${error.message}`);
+        this.toastr.error(`ERROR DE LA API: ${error.message}`);
       },
     });
   }
@@ -65,14 +61,22 @@ export class ProductosComponent implements OnInit {
           this.listaProductos = res;
         },
         error: (error) => {
-          alert(`ERROR DE LA API: ${error.message}`);
+          this.toastr.error(`ERROR DE LA API: ${error.message}`);
         },
       });
     }
   }
 
   agregarAlCarrito(producto: Producto) {
-    this.productosService.agregarProductoAlCarrito(producto);
-    alert(`${producto.nombre} ha sido agregado al carrito.`);
+    const result = this.carritoService.agregarProductoAlCarrito(producto);
+    if (result.success) {
+    //  this.toastr.success(result.message);
+    } else {
+    //  this.toastr.error(result.message);
+    }
   }
 }
+
+
+
+

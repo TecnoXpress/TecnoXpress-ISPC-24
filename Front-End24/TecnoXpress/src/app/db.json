@@ -1,26 +1,14 @@
 {
   "users": [
     {
-      "id": "1",
-      "nombre": "Juan",
-      "nombreUsuario": "juan123",
-      "apellido": "Pérez",
-      "email": "juan@example.com",
-      "telefono": "+543571621961",
-      "dni": "12345678",
-      "fechaNacimiento": "1990-01-01",
-      "password": "password123",
-      "confirmPassword": "password123"
-    },
-    {
-      "id": "3c22",
+      "id": "19d0",
       "nombre": "Taoufik",
-      "nombreUsuario": "Saidi",
-      "apellido": "saidi1",
-      "email": "saidi1@gmail.com",
-      "telefono": 54654645153156,
-      "dni": 5465463542,
-      "fechaNacimiento": "2000-01-30",
+      "nombreUsuario": "Taoufik9",
+      "apellido": "Saidi",
+      "email": "taoufik@gmail.com",
+      "telefono": 456875426,
+      "dni": 5641235841,
+      "fechaNacimiento": "1950-05-30",
       "password": "123456789tt",
       "confirmPassword": "123456789tt"
     }
@@ -241,6 +229,65 @@
       },
       "precio": 1000,
       "stock": 15
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "81d2",
+      "nombre": "Taoufik",
+      "direccion": "Bariloche calle 5689",
+      "tarjeta": "7555555558446854",
+      "exp": "10/26",
+      "cvv": "256",
+      "carrito": [
+        {
+          "producto": {
+            "id": "02",
+            "nombre": "Mouse 02",
+            "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+            "imagen": "assets/media/mouse/02.webp",
+            "categoria": {
+              "nombre": "Mouses",
+              "id_categoria_productos": "01"
+            },
+            "precio": 1000,
+            "stock": 15
+          },
+          "cantidad": 1
+        },
+        {
+          "producto": {
+            "id": "01",
+            "nombre": "Mouse 01",
+            "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+            "imagen": "assets/media/mouse/01.webp",
+            "categoria": {
+              "nombre": "Mouses",
+              "id_categoria_productos": "01"
+            },
+            "precio": 1000,
+            "stock": 15
+          },
+          "cantidad": 1
+        },
+        {
+          "producto": {
+            "id": "03",
+            "nombre": "Mouse 03",
+            "descripcion": "texto descripcion del producto, texto descripcion del producto, texto descripcion del producto.",
+            "imagen": "assets/media/mouse/03.webp",
+            "categoria": {
+              "nombre": "Mouses",
+              "id_categoria_productos": "01"
+            },
+            "precio": 1000,
+            "stock": 15
+          },
+          "cantidad": 1
+        }
+      ],
+      "total": 3000,
+      "fechaPago": "2024-06-11T04:56:00.280Z"
     }
   ]
 }
