@@ -1,0 +1,18 @@
+<div class="card-body">
+  <h5 class="card-title">Compras pendientes</h5>
+  <div class="card-text">
+    <ul *ngIf="comprasPendientes.length > 0">
+      <li *ngFor="let pedido of comprasPendientes">
+        <p>Pedido ID: {{ pedido.id }}</p>
+        <p>Total: ${{ pedido.total }}</p>
+        <ul>
+          <li *ngFor="let item of pedido.carrito">
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre" width="50" height="50"/>
+            <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p *ngIf="comprasPendientes.length === 0">No tienes compras pendientes.</p>
+  </div>
+</div>
