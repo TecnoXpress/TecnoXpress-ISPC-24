@@ -1,59 +1,27 @@
-<div *ngIf="currentUser">
-  <h2>Bienvenido, {{ currentUser.nombre }}</h2>
 
-  <h3>Perfil</h3>
-  <p>Nombre: {{ currentUser.nombre }}</p>
-  <p>Email: {{ currentUser.email }}</p>
-  <p>Teléfono: {{ currentUser.telefono }}</p>
-
-  <h3>Compras Realizadas</h3>
-  <ul *ngIf="comprasRealizadas.length > 0">
-    <li *ngFor="let pedido of comprasRealizadas">
-      <p>Pedido ID: {{ pedido.id }}</p>
-      <p>Total: ${{ pedido.total }}</p>
-      <p>Fecha de Pago: {{ pedido.fechaPago | date:'short' }}</p>
-      <ul>
-        <li *ngFor="let item of pedido.carrito">
-          <img [src]="item.producto.imagen" [alt]="item.producto.nombre" width="50" height="50"/>
-          <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <p *ngIf="comprasRealizadas.length === 0">No tienes compras realizadas.</p>
-
-  <h3>Compras Pendientes</h3>
-  <ul *ngIf="comprasPendientes.length > 0">
-    <li *ngFor="let pedido of comprasPendientes">
-      <p>Pedido ID: {{ pedido.id }}</p>
-      <p>Total: ${{ pedido.total }}</p>
-      <ul>
-        <li *ngFor="let item of pedido.carrito">
-          <img [src]="item.producto.imagen" [alt]="item.producto.nombre" width="50" height="50"/>
-          <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <p *ngIf="comprasPendientes.length === 0">No tienes compras pendientes.</p>
-
-  <button (click)="vaciarCarrito()" class="btn btn-warning">Vaciar Carrito</button>
-
-  <h3>Recomendaciones</h3>
-  <ul class="recommendations">
-    <li *ngFor="let producto of productosRecomendados">
-      <img [src]="producto.imagen" [alt]="producto.nombre" width="50" height="50"/>
-      <p>{{ producto.nombre }}</p>
-      <p>Precio: ${{ producto.precio }}</p>
-      <button (click)="agregarAlCarrito(producto)">Agregar al Carrito</button>
-    </li>
-  </ul>
+<div class="dashboard">
+    
+      <div class="card text-center">
+        
+        <div class="dashboard">
+          <h1>Mi perfil</h1>
+          <div class="order-history">
+            <h2>Historial de Compras</h2>
+            <app-tab>
+              <app-tab-content title="Pendientes">
+               <app-pendientes-component></app-pendientes-component>
+              </app-tab-content>
+              <app-tab-content title="Realizadas">
+               <app-realizadas-component></app-realizadas-component>
+              </app-tab-content>
+            </app-tab>
+          </div>
+        </div>
+        
+        
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
 </div>
-
-
-
-
-
-
-  
   
