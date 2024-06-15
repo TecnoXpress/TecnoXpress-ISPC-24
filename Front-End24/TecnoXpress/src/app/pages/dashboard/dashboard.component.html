@@ -1,41 +1,74 @@
+<div class="container" *ngIf="currentUser">
+  <h2>¡Hola! {{ currentUser.nombre }}, Nos Alegra Verte En TecnoXpress</h2>
 
-<div class="dashboard">
-    
-      <div class="card text-center">
-        <!--<div class="card-header">
-          <nav>
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-              <li class="nav-item">
-                  <a routerLink="dashboard/pendientes" routerLinkActive="active" class="nav-link">Pendientes</a>
-              </li>
-              <li class="nav-item">
-                  <a routerLink="dashboard/realizadas" routerLinkActive="active" class="nav-link">Realizadas</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        -->
+  <div class="profile">
+    <h3>Perfil</h3>
+    <p>Nombre: {{ currentUser.nombre }}</p>
+    <p>Email: {{ currentUser.email }}</p>
+    <p>Teléfono: {{ currentUser.telefono }}</p>
+  </div>
 
-        <div class="dashboard">
-          <h1>Mi perfil</h1>
-          <div class="order-history">
-            <h2>Historial de Compras</h2>
-            <app-tab>
-              <app-tab-content title="Pendientes">
-               <app-pendientes-component></app-pendientes-component>
-              </app-tab-content>
-              <app-tab-content title="Realizadas">
-               <app-realizadas-component></app-realizadas-component>
-              </app-tab-content>
-            </app-tab>
-          </div>
-        </div>
-        
-        
-        <div class="card-body">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
+  <div class="orders">
+    <h3>Compras Realizadas</h3>
+    <ul *ngIf="comprasRealizadas.length > 0">
+      <li *ngFor="let pedido of comprasRealizadas">
+        <p>Pedido ID: {{ pedido.id }}</p>
+        <p>Cliente ID: {{ pedido.id_User }}</p>
+        <p>Total: ${{ pedido.total }}</p>
+        <p>Fecha de Pago: {{ pedido.fechaPago | date:'short' }}</p>
+        <ul>
+          <li *ngFor="let item of pedido.carrito">
+            <p>Producto ID: {{ item.producto.id }}</p>
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre" />
+            <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p *ngIf="comprasRealizadas.length === 0">No tienes compras realizadas.</p>
+  </div>
+
+  <div class="orders">
+    <h3>Compras Pendientes</h3>
+    <ul *ngIf="comprasPendientes.length > 0">
+      <li *ngFor="let pedido of comprasPendientes">
+        <p>Pedido ID: {{ pedido.id }}</p>
+        <p>Cliente ID: {{ pedido.id_User }}</p>
+        <p>Total: ${{ pedido.total }}</p>
+        <p>Fecha de Pago: {{ pedido.fechaPago | date:'short' }}</p>
+        <ul>
+          <li *ngFor="let item of pedido.carrito">
+            <p>Producto ID: {{ item.producto.id }}</p>
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre" />
+            <p>{{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p *ngIf="comprasPendientes.length === 0">No tienes compras pendientes.</p>
+  </div>
+
+  <button (click)="vaciarCarrito()" class="btn btn-warning">Vaciar Carrito</button>
+
+  <div class="orders">
+    <h3>Recomendaciones</h3>
+    <ul class="recommendations">
+      <li *ngFor="let producto of productosRecomendados">
+        <img [src]="producto.imagen" [alt]="producto.nombre" />
+        <p>{{ producto.nombre }}</p>
+        <p>Precio: ${{ producto.precio }}</p>
+        <button (click)="agregarAlCarrito(producto)">Agregar al Carrito</button>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+  
   

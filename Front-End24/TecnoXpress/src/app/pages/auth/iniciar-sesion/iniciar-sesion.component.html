@@ -1,47 +1,63 @@
-<section class="ingresofondo">
-  <h2 class="titulo">¡Bienvenido a TecnoXpress!</h2>
-  <div class="container_ingreso">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <div class="input-container">
-        <div class="form-group">
-          <input
-            class="text"
-            type="text"
-            formControlName="nombreUsuario"
-            placeholder="Usuario"
-            required
-          />
-          <div *ngIf="nombreUsuario?.touched && nombreUsuario?.invalid">
-            <small *ngIf="nombreUsuario?.hasError('required')">El nombre de usuario es requerido!</small>
-            <small *ngIf="nombreUsuario?.hasError('minlength')">El nombre debe tener más de 4 dígitos</small>
-            <small *ngIf="nombreUsuario?.hasError('maxlength')">El nombre de usuario no debe tener más de 20 dígitos</small>
+<main class="form-signin">
+  <section class="ingresofondo">
+    <h2 class="titulo">¡Bienvenido a TecnoXpress!</h2>
+    <div class="container_ingreso">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="input-container">
+          <div class="form-group">
+            <input
+              class="text"
+              type="text"
+              formControlName="nombreUsuario"
+              placeholder="Usuario"
+              required
+            />
+            @if (nombreUsuario?.touched && nombreUsuario?.invalid) {
+              @if (nombreUsuario?.hasError('required')) {
+                <small>El nombre de usuario es requerido!</small>
+              }
+              @else if (nombreUsuario?.hasError('minlength')) {
+                <small>El nombre debe tener más de 4 dígitos</small>
+              }
+              @else if (nombreUsuario?.hasError('maxlength')) {
+                <small>El nombre de usuario no debe tener más de 20 dígitos</small>
+              }
+            }
+          </div>
+          <div class="form-group">
+            <input
+              class="text"
+              type="password"
+              formControlName="password"
+              placeholder="Contraseña"
+              required
+            />
+            @if (password?.touched && password?.invalid) {
+              @if (password?.hasError('required')) {
+                <small>Contraseña requerida!</small>
+              }
+              @else if (password?.hasError('minlength')) {
+                <small>La contraseña debe tener mínimo 4 dígitos</small>
+              }
+              @else if (password?.hasError('maxlength')) {
+                <small>La contraseña debe tener máximo 15 dígitos</small>
+              }
+            }
           </div>
         </div>
-        <div class="form-group">
-          <input
-            class="text"
-            type="password"
-            formControlName="password"
-            placeholder="Contraseña"
-            required
-          />
-          <div *ngIf="password?.touched && password?.invalid">
-            <small *ngIf="password?.hasError('required')">Contraseña requerida!</small>
-            <small *ngIf="password?.hasError('minlength')">La contraseña debe tener mínimo 4 dígitos</small>
-            <small *ngIf="password?.hasError('maxlength')">La contraseña debe tener máximo 15 dígitos</small>
-          </div>
-        </div>
-      </div>
-      <button class="Enviar" type="submit">
-        <span class="icon_send"><i class="fa-solid fa-paper-plane"></i></span>
-        <span>Enviar</span>
-      </button>
-      <p><a routerLink="/contact" id="olvidar-contraseña">¿Olvidaste tu contraseña?</a></p>
-      <p><a routerLink="/registrar" id="registro-enlace">¿No tienes cuenta?</a></p>
-      <p><a routerLink="/registrar" id="Registrar">Regístrate</a></p>
-    </form>
-  </div>
-</section>
+        <button class="Enviar" type="submit">
+          <span class="icon_send"><i class="fa-solid fa-paper-plane"></i></span>
+          <span>Enviar</span>
+        </button>
+        <p><a routerLink="/contact" id="olvidar-contraseña">¿Olvidaste tu contraseña?</a></p>
+        <p><a routerLink="/registrar" id="registro-enlace">¿No tienes cuenta?</a></p>
+        <p><a routerLink="/registrar" id="Registrar">Regístrate</a></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+
 
 
 

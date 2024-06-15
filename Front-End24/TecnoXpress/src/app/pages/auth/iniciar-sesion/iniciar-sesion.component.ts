@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { User } from './../registrar/user.model';
+import { AuthService } from '../auth-service/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -12,13 +12,14 @@ import { User } from './../registrar/user.model';
   styleUrls: ['./iniciar-sesion.component.css'],
   imports: [CommonModule, ReactiveFormsModule, RouterModule]
 })
-export class IniciarSesionComponent implements OnInit{
+export class IniciarSesionComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    @Inject(ToastrService) private toastr: ToastrService
   ) {
     this.loginForm = this.formBuilder.group({
       nombreUsuario: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
@@ -34,9 +35,7 @@ export class IniciarSesionComponent implements OnInit{
     return this.loginForm.get('password');
   }
 
-  ngOnInit(): void {
-      
-  }
+  ngOnInit(): void {}
 
   login(): void {
     if (this.loginForm.valid) {
@@ -44,18 +43,20 @@ export class IniciarSesionComponent implements OnInit{
       this.authService.login(nombreUsuario, password).subscribe(
         response => {
           console.log('Login successful:', response);
-          alert('Inicio de sesión exitoso');
-          this.router.navigate(['/dashboard']);  // Redirigir a la página principal o de inicio del usuario
+          this.toastr.success('Inicio de sesión exitoso');
+          this.router.navigate(['/dashboard']);
         },
-        error =>
-          {
-            console.error('Login error:', error);
-            alert('Error en el inicio de sesión: ' + error.message);
-          }
-        );
-      } else {
-        alert('Por favor, complete todos los campos.');
-      }}}
+        error => {
+          console.error('Login error:', error);
+          this.toastr.error('Error en el inicio de sesión: ' + error.message);
+        }
+      );
+    } else {
+      this.toastr.warning('Por favor, complete todos los campos.');
+    }
+  }
+}
+
 
 
 

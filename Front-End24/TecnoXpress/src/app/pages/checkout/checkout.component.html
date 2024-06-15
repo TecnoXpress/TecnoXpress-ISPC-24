@@ -1,47 +1,77 @@
-<div class="container">
-    <div class="py-5 text-center">
-      <img src="./media/logo.png" class="rounded mx-auto d-block" alt="Logo" width="60px" height="60px">
-      <h2>Formulario de Facturación de TecnoXpress</h2>
-      <p class="lead">Bienvenido a la página de Facturación de TecnoXpress. Gracias por elegir TecnoXpress y lo esperamos pronto.</p>
-    </div>
-  
-    <div class="row">
-      <div class="col-md-4 order-md-2 mb-4" id="resumenPedido">
-        </div>
-  
-      <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Datos de Facturación</h4>
-        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" novalidate>
-          
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="nombre">Nombre</label>
-              <input type="text" class="form-control" id="nombre" formControlName="nombre"
-                [class.is-invalid]="nombre?.invalid && (nombre?.dirty || nombre?.touched)"
-                [class.is-valid]="nombre?.valid && (nombre?.dirty || nombre?.touched)">
-              <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="invalid-feedback">
-                Nombre es un campo obligatorio.
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="apellido">Apellido</label>
-              <input type="text" class="form-control" id="apellido" formControlName="apellido"
-                [class.is-invalid]="apellido?.invalid && (apellido?.dirty || apellido?.touched)"
-                [class.is-valid]="apellido?.valid && (apellido?.dirty || apellido?.touched)">
-              <div *ngIf="apellido?.invalid && (apellido?.dirty || apellido?.touched)" class="invalid-feedback">
-                Apellido es un campo obligatorio.
-              </div>
+<h2 class="tituloform">Formulario de Facturación de TecnoXpress</h2>
+<p class="lead">Bienvenido a la página de Facturación de TecnoXpress. Gracias por elegir TecnoXpress y lo esperamos pronto.</p>
+<div class="container_register">
+  <div class="register-wrapper">
+    <div class="order-summary">
+      <h4>Resumen del pedido</h4>
+      <ul class="order-list">
+        <li *ngFor="let item of carrito" class="order-item">
+          <div class="order-details">
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre" class="product-image">
+            <div>
+              <h6>{{ item.producto.nombre }}</h6>
+              <small class="text-muted">{{ item.producto.descripcion }}</small>
             </div>
           </div>
-          
-          <div class="super-card_actions actionButtons">
-            <a class="boton_hacia-atras" routerLink="/carrito">Cancelar</a>
-            <button type="submit" class="btn btn-primary" [disabled]="checkoutForm.invalid">Confirmar pedido</button>
-            <div *ngIf="pedidoEnviado" class="alert alert-success" role="alert">
-              Pedido enviado con éxito!
-            </div>
-          </div>
-        </form>
+          <span class="order-price">${{ item.producto.precio * item.cantidad }}</span>
+        </li>
+      </ul>
+      <div class="order-total">
+        <span>Total</span>
+        <strong>${{ totalPrecio }}</strong>
       </div>
     </div>
+    <div class="register-form">
+      <h4 class="mb-3">Datos de Facturación</h4>
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre Completo</label>
+          <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
+          <div *ngIf="checkoutForm.get('nombre')?.invalid && checkoutForm.get('nombre')?.touched" class="invalid-feedback">
+            Nombre es un campo obligatorio.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección</label>
+          <input id="direccion" formControlName="direccion" type="text" class="form-control" required>
+          <div *ngIf="checkoutForm.get('direccion')?.invalid && checkoutForm.get('direccion')?.touched" class="invalid-feedback">
+            Dirección es un campo obligatorio.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tarjeta">Número de Tarjeta</label>
+          <input id="tarjeta" formControlName="tarjeta" type="text" class="form-control" required>
+          <div *ngIf="checkoutForm.get('tarjeta')?.invalid && checkoutForm.get('tarjeta')?.touched" class="invalid-feedback">
+            Ingrese un número de tarjeta válido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exp">Fecha de Expiración (MM/AA)</label>
+          <input id="exp" formControlName="exp" type="text" class="form-control" required>
+          <div *ngIf="checkoutForm.get('exp')?.invalid && checkoutForm.get('exp')?.touched" class="invalid-feedback">
+            Ingrese una fecha de expiración válida.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" formControlName="cvv" type="text" class="form-control" required>
+          <div *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched" class="invalid-feedback">
+            Ingrese un CVV válido.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary boton" [disabled]="checkoutForm.invalid">Realizar Pago</button>
+      </form>
+    </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

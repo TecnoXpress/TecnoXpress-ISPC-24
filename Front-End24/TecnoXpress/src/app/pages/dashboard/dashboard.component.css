@@ -1,12 +1,153 @@
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-.dashboard {
-    padding: 20px;
-    background-color: #f9f9f9;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title */
+h2 {
+  color: #e67e22;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Profile section */
+.profile {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.profile p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Orders section */
+.orders {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.orders h3 {
+  color: #e67e22;
+  margin-bottom: 15px;
+}
+
+.orders ul {
+  list-style: none;
+  padding: 0;
+}
+
+.orders li {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+.orders li:last-child {
+  border-bottom: none;
+}
+
+.orders p {
+  margin: 5px 0;
+}
+
+.orders img {
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Recommendations section */
+.recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.recommendations li {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: calc(33.333% - 20px);
+  text-align: center;
+}
+
+.recommendations img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recommendations p {
+  margin: 5px 0;
+}
+
+.recommendations button {
+  background-color: #e67e22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.recommendations button:hover {
+  background-color: #d35400;
+}
+
+/* Buttons */
+.btn {
+  background-color: #e67e22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-warning {
+  background-color: #e74c3c;
+}
+
+.btn-warning:hover {
+  background-color: #c0392b;
+}
+
+.btn:hover {
+  background-color: #d35400;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .recommendations li {
+    width: calc(50% - 20px);
   }
-  .order-history, .shipment-status {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+}
+
+@media (max-width: 480px) {
+  .recommendations li {
+    width: 100%;
   }
-  
+}

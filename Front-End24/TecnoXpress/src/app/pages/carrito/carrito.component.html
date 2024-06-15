@@ -1,96 +1,47 @@
-
 <h2>Carrito de Compras</h2>
-<div *ngIf="carrito.length === 0">
-  <p>No hay productos en el carrito.</p>
-</div>
-<div *ngIf="carrito.length > 0">
-  <div *ngFor="let producto of carrito" class="carrito-producto">
-    <img [src]="producto.imagen" [alt]="producto.nombre" />
-    <div class="carrito-detalles">
-      <h3>{{ producto.nombre }}</h3>
-      <p>Precio: ${{ producto.precio }}</p>
-      <button (click)="removerDelCarrito(producto)" class="mi-boton-tt">
-        <i class="fa-solid fa-trash"></i> Remover
-      </button>
+<div class="carrito-container">
+  <aside class="aside-izquierda">
+    <a routerLink="/productos" class="mi-boton-tt seguir-comprando">
+      Seguir Comprando
+    </a>
+  </aside>
+  <aside class="aside-derecha">
+    <div *ngIf="carrito.length === 0">
+      <p>No hay productos en el carrito.</p>
     </div>
-  </div>
-  <div class="total-carrito">
-    <p>Total: ${{ total }}</p>
-  </div>
-  <button (click)="vaciarCarrito()" class="mi-boton-tt vaciar-carrito">
-    Vaciar Carrito
-  </button>
-</div>
-<!-------------------------------------Comentado 
-<main>
-    <div class="wrapper">
-      <div class="mobile">
-        <button class="open-menu" id="open-menu">
-          <i class="bi bi-list"></i>
-        </button>
-      </div>
-      <aside>
-        <h1 class="categorias">Todos Nuestros productos</h1>
-        <button class="close-menu" id="close-menu">
-          <i class="bi bi-x"></i>
-        </button>
-        <nav>
-          <ul>
-            <li>
-              <a class="boton-menu boton-volver" routerLink="./productos.component.html">
-                <i class="bi bi-arrow-return-left"></i> Seguir Comprando
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="boton-menu boton-carrito active"
-                routerLink="./carrito.component.html"
-              >
-                <i class="bi bi-cart-fill"></i> Carrito
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-      <section class="contenedor-productos">
-        <h2 class="titulo-principal">Carrito</h2>
-        <div class="contenedor-carrito">
-          <p id="carrito-vacio" class="carrito-vacio">
-            Tu Carrito esta vacío. <i class="bi bi-emoji-frown"></i>
-          </p>
-          <div id="carrito-productos" class="carrito-productos disabled">
-            <div class="carrito-producto"></div>
-          </div>
-          <div id="carrito-acciones" class="carrito-acciones disabled">
-            <div class="carrito-acciones-izquierda">
-              <button
-                id="carrito-acciones-vaciar"
-                class="carrito-acciones-vaciar"
-              >
-                Vaciar Carrito
-              </button>
-            </div>
-            <div class="carrito-acciones-derecha">
-              <div class="carrito-acciones-total">
-                <p>Total:</p>
-                <p id="total">$3000</p>
-              </div>
-              <button
-                id="carrito-acciones-comprar"
-                class="carrito-acciones-comprar"
-                (click)=comprarCarrito();
-              >
-                Comprar Ahora
-              </button>
-            </div>
-          </div>
-          <p id="carrito-comprado" class="carrito-comprado disabled">
-            Muchas Gracias por tu compra.<i class="bi bi-emoji-smile"></i>
-          </p>
+    <div *ngIf="carrito.length > 0">
+      <div *ngFor="let item of carrito" class="carrito-producto">
+        <img [src]="item.producto.imagen" [alt]="item.producto.nombre" />
+        <div class="carrito-detalles">
+          <h3>{{ item.producto.nombre }}</h3>
+          <p>Precio: ${{ item.producto.precio }}</p>
+          <p>Cantidad: {{ item.cantidad }}</p>
+          <button (click)="removerDelCarrito(item.producto)" class="mi-boton-tt remover-producto">
+            <i class="fa-solid fa-trash"></i> Remover
+          </button>
         </div>
-      </section>
+      </div>
+      <button (click)="vaciarCarrito()" class="mi-boton-tt vaciar-carrito">
+        Vaciar Carrito
+      </button>
+      <div class="carrito-totales">
+        <h3>Total de productos: {{ totalProductos }}</h3>
+        <h3>Total del precio: ${{ totalPrecio }}</h3>
+      </div>
+      <div class="carrito-acciones">
+        <a routerLink="/checkout" class="mi-boton-tt realizar-compra">
+          Realizar Compra
+        </a>
+      </div>
     </div>
-  </main>
+  </aside>
+</div>
 
----------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
