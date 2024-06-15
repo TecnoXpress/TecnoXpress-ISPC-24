@@ -45,6 +45,8 @@ npm ERR! C:\Users\flash\AppData\Local\npm-cache\_logs\2024-06-15T18_52_31_617Z-e
 ### Solucion 
 Paso1: 
 npm install --legacy-peer-deps
+
+
 Paso2: (Opcional):
 ng update @angular/core @angular/cli
 
